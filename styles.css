@@ -668,11 +668,34 @@ a:hover {
   font-size: 1.3rem;
 }
 
+.specialization {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.specialization-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.specialization-item i {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
 .degree {
   font-weight: 600;
   color: var(--gray);
-  margin-bottom: 15px;
-  padding-bottom: 15px;
+  margin-bottom: 0.5rem; /* Reduced from 15px */
+  padding-bottom: 0.5rem; /* Reduced from 15px */
   border-bottom: 1px dashed #e2e8f0;
 }
 
