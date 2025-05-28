@@ -386,10 +386,10 @@ a:hover {
 
 .about-image {
   flex: 1 1 35%;
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 350px;
+  max-width: 500px;
   position: relative;
-  height: 350px;
+  height: 375px;
   margin-top: 1rem;
 }
 
