@@ -32,6 +32,14 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  background-color: #f8fafc; /* Slightly off-white */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 /* Container for consistent content width */
 .container {
   width: 100%;
@@ -1515,3 +1523,4 @@ a:hover {
     margin-right: 0;
   }
 }
+
