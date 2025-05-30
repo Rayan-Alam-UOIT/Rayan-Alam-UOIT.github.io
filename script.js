@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize slideshow if slides exist
   if (slides.length > 0) {
     showSlide(0);
-    setInterval(nextSlide, 3000); // Auto-advance every 3 seconds
+    setInterval(nextSlide, 3500); // Auto-advance every 3.5 seconds
   }
 
   // =============================================
