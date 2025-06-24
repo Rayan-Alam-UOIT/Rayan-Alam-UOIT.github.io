@@ -1,7 +1,6 @@
 # 🚀 Rayan Alam - Portfolio Website
 
-Welcome to my personal portfolio website!  
-A modern, fully responsive site showcasing my **skills**, **projects**, and **experience** as a Computer Science student at **Ontario Tech University**.
+Welcome to my personal portfolio website! A modern, fully responsive site showcasing my **skills**, **projects**, and **experience** as a Computer Science student at **Ontario Tech University**.
 
 ---
 
@@ -40,7 +39,7 @@ A modern, fully responsive site showcasing my **skills**, **projects**, and **ex
 
 ## 📌 Live Demo
 
-🔗 [Visit the live site](#) *(https://rayan-alam-uoit.github.io/)*
+🔗 [Visit the live site](https://rayan-alam-uoit.github.io/)
 
 ---
 
@@ -53,7 +52,7 @@ A modern, fully responsive site showcasing my **skills**, **projects**, and **ex
 
 ## 📫 Contact
 
-Feel free to reach out via the contact form on the website or connect with me on [LinkedIn](#) *(www.linkedin.com/in/rayan-alam)*.
+Feel free to reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/in/rayan-alam).
 
 ---
 
