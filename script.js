@@ -236,3 +236,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start the typewriter effect after initial delay
   setTimeout(typeWriter, 500);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  const projectsGrid = document.querySelector('.projects-grid');
+  const projectsSection = document.getElementById('projects');
+  
+  if (showMoreBtn && projectsGrid) {
+    showMoreBtn.addEventListener('click', function() {
+      if (!projectsGrid.classList.contains('show-all')) {
+        // When showing more
+        projectsGrid.classList.add('show-all');
+        showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less';
+        showMoreBtn.classList.add('rotate');
+      } else {
+        // When showing less - scroll to section first
+        projectsSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Wait for scroll to complete before hiding
+        setTimeout(() => {
+          projectsGrid.classList.remove('show-all');
+          showMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Show More Projects';
+          showMoreBtn.classList.remove('rotate');
+        }, 500); // Match this duration to your scroll duration
+      }
+    });
+  }
+});

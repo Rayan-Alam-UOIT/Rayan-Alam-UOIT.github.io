@@ -461,11 +461,11 @@ a:hover {
 /* ============== SKILLS SECTION =============== */
 /* ============================================= */
 
+/* Skills Section */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: stretch;
+  gap: 1.5rem;
 }
 
 .skill-category {
@@ -474,10 +474,6 @@ a:hover {
   padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
 }
 
 .skill-category:hover {
@@ -498,78 +494,40 @@ a:hover {
   color: var(--accent);
 }
 
-.skill-list {
-  list-style: none;
+.skills-container {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex-grow: 0;
-  margin-bottom: 0;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.skill-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.skill-name {
-  font-weight: 600;
-  color: var(--dark);
-}
-
-.skill-level {
-  font-size: 0.85rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 1rem;
-  font-weight: 500;
-}
-
-/* Skill level indicators */
-.skill-level.expert {
-  background-color: rgba(16, 185, 129, 0.1);
-  color: #059669;
-}
-
-.skill-level.advanced {
-  background-color: rgba(59, 130, 246, 0.1);
-  color: var(--secondary);
-}
-
-.skill-level.intermediate {
-  background-color: rgba(245, 158, 11, 0.1);
-  color: #d97706;
-}
-
-.skill-level.beginner {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: #dc2626;
-}
-
-.skill-learning-message {
-  margin-top: 1.5rem;
-  padding-top: 0; 
-  text-align: center; 
-  font-size: 0.85rem;
-  color: var(--gray);
+.skill-item {
   display: flex;
   align-items: center;
-  justify-content: center; 
   gap: 0.5rem;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-  width: 100%;
-  border-top: none; 
-}
-
-.skill-category:hover .skill-learning-message {
-  color: var(--accent);
-}
-
-.skill-learning-message i {
+  background: #f8fafc;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50px;
   font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive adjustments */
@@ -827,6 +785,7 @@ a:hover {
   color: var(--accent);
   font-size: 0.875rem;
   margin-bottom: 1rem;
+  white-space: nowrap;
 }
 
 .project-description {
@@ -863,6 +822,38 @@ a:hover {
   margin-top: auto;
   display: flex;
   gap: 1rem;
+}
+
+/* Projects Show More Button */
+.hidden-project {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.projects-grid.show-all .hidden-project {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#showMoreBtn i {
+  transition: transform 0.3s ease;
+}
+
+#showMoreBtn.rotate i {
+  transform: rotate(180deg);
+}
+
+.tech-highlight {
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  display: inline-block; /* This helps with spacing */
 }
 
 /* ============================================= */
@@ -1021,7 +1012,7 @@ a:hover {
 }
 
 .award-card:nth-child(7) .award-icon {
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
 }
 
 .award-card:nth-child(5) .award-icon {
@@ -1033,6 +1024,11 @@ a:hover {
 }
 
 .award-card:nth-child(3) .award-icon {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+}
+
+
+.award-card:nth-child(2) .award-icon {
   background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
 }
 
