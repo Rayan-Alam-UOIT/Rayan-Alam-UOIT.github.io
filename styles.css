@@ -261,6 +261,41 @@ a:hover {
   transition: all 0.3s ease;
 }
 
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .navbar .container {
+    height: 60px; /* Slightly smaller navbar */
+  }
+  
+  .nav-links {
+    top: 60px; /* Adjusted for smaller navbar */
+    background-color: rgba(255, 255, 255, 0.98); /* Slightly transparent */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+  }
+  
+  .nav-links li {
+    margin: 1.5rem 0; /* More spacing between items */
+  }
+  
+  .nav-links a {
+    font-size: 1.2rem; /* Larger tap targets */
+    padding: 0.5rem 1rem; /* Better touch area */
+  }
+  
+  /* Animate hamburger icon */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
 /* ============================================= */
 /* ============== HERO SECTION ================= */
 /* ============================================= */
@@ -347,6 +382,37 @@ a:hover {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 0 60px; /* Reduced padding */
+  }
+  
+  .hero h1 {
+    font-size: 2rem; /* Smaller heading */
+    line-height: 1.2;
+  }
+  
+  .hero h2 {
+    font-size: 1.1rem; /* Smaller subheading */
+  }
+  
+  .hero p {
+    font-size: 1rem; /* Adjusted paragraph */
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px; /* Smaller profile image */
+    margin-top: 1.5rem;
+  }
+  
+  /* Typewriter text adjustments */
+  #typewriter-text {
+    min-height: 1.2em; /* Adjusted for mobile */
+    font-size: 1.1rem;
+  }
 }
 
 /* ============================================= */
@@ -457,6 +523,27 @@ a:hover {
   color: var(--gray);
 }
 
+@media (max-width: 768px) {
+  .about-image {
+    min-width: 100%; /* Full width on mobile */
+    height: 250px; /* Reduced height */
+    margin-top: 2rem;
+  }
+  
+  .stats {
+    gap: 1rem; /* Closer stats */
+  }
+  
+  .stat-item {
+    flex: 1 1 40%; /* Two columns */
+    min-width: 120px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem; /* Slightly smaller */
+  }
+}
+
 /* ============================================= */
 /* ============== SKILLS SECTION =============== */
 /* ============================================= */
@@ -538,6 +625,26 @@ a:hover {
   
   .skill-learning-message {
     opacity: 1; /* Always visible on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  
+  .skill-category {
+    padding: 1rem; /* Reduced padding */
+  }
+  
+  .skill-item {
+    font-size: 0.8rem; /* Smaller text */
+    padding: 0.4rem 0.6rem; /* Tighter padding */
+  }
+  
+  .skill-icon {
+    width: 16px;
+    height: 16px; /* Smaller icons */
   }
 }
 
@@ -733,6 +840,36 @@ a:hover {
   font-size: 0.9rem;
 }
 
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 20px; /* Less padding */
+  }
+  
+  .timeline-dot {
+    left: -20px; /* Adjusted position */
+  }
+  
+  .timeline-card {
+    padding: 1.25rem; /* Reduced padding */
+  }
+  
+  .card-header {
+    flex-direction: column; /* Stack icon and text */
+    align-items: flex-start;
+  }
+  
+  .card-header i {
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+  
+  .activity-list li,
+  .responsibilities li {
+    margin-bottom: 0.5rem; /* Tighter spacing */
+    font-size: 0.9rem; /* Slightly smaller */
+  }
+}
+
 /* ============================================= */
 /* ============== PROJECTS SECTION ============= */
 /* ============================================= */
@@ -854,6 +991,36 @@ a:hover {
   border-radius: 4px;
   margin-right: 0.5rem;
   display: inline-block; /* This helps with spacing */
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .project-image {
+    height: 180px; /* Slightly smaller */
+  }
+  
+  .project-content {
+    padding: 1.25rem;
+  }
+  
+  .project-tech {
+    white-space: normal; /* Allow wrapping */
+    font-size: 0.8rem;
+  }
+  
+  .tech-highlight {
+    display: block; /* Stack tech highlights */
+    margin-bottom: 0.3rem;
+  }
 }
 
 /* ============================================= */
@@ -1178,6 +1345,27 @@ a:hover {
   color: white;
 }
 
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column; /* Stack contact info and form */
+    gap: 2rem;
+  }
+  
+  .contact-methods .contact-item {
+    font-size: 0.9rem; /* Slightly smaller */
+  }
+  
+  .download-resume-btn {
+    width: 100%; /* Full width button */
+    justify-content: center;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem; /* Slightly smaller */
+  }
+}
+
 /* ============================================= */
 /* ============== THANK YOU PAGE =============== */
 /* ============================================= */
@@ -1382,6 +1570,30 @@ a:hover {
   font-size: 0.875rem;
 }
 
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 2rem;
+  }
+  
+  .footer-logo,
+  .footer-links,
+  .footer-social {
+    text-align: center; /* Center align */
+  }
+  
+  .footer-links ul,
+  .footer-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items */
+  }
+  
+  .social-icons {
+    justify-content: center; /* Center social icons */
+  }
+}
+
 /* ============================================= */
 /* ============== ANIMATIONS =================== */
 /* ============================================= */
@@ -1527,3 +1739,32 @@ a:hover {
   }
 }
 
+@media (max-width: 768px) {
+  /* Section title adjustments */
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Button tap targets */
+  .btn, .btn-small {
+    padding: 0.8rem 1.5rem; /* Larger tap targets */
+    min-width: 120px; /* Minimum width */
+  }
+  
+  /* Prevent text overflow */
+  body {
+    word-wrap: break-word;
+    overflow-x: hidden;
+  }
+  
+  /* Adjust all section padding */
+  .section {
+    padding: 50px 0;
+  }
+  
+  /* Awards grid */
+  .awards-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+}
