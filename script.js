@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typewriterText = document.getElementById('typewriter-text');
   const professions = [
   'Honours Computer Science Student',
-  'Incoming Data Science & AI Intern',
+  'Data Science & AI Development Intern',
   'Full-Stack Developer Enthusiast',
   'Problem Solver & Innovator',
   'Machine Learning Explorer',
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let professionIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  let typingSpeed = 140; // Base typing speed in ms
+  let typingSpeed = 145; // Base typing speed in ms
 
   function typeWriter() {
     const currentProfession = professions[professionIndex];
