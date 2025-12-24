@@ -192,8 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
   'Honours Computer Science Student',
   'Data Science & AI Development Intern',
   'Full-Stack Developer Enthusiast',
+  'Applied AI Explorer',
   'Problem Solver & Innovator',
-  'Machine Learning Explorer',
   'Tech Passionate & Lifelong Learner'
 ];
   
