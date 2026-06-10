@@ -1,79 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <!-- Basic Meta Tags -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Page Title -->
-  <title>Thank You | Rayan Alam</title>
-  
-  <!-- CSS Links -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Message Sent | Rayan Alam</title>
+
+  <link rel="icon" type="image/png" href="https://img.icons8.com/color/96/source-code.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <!-- Navigation Bar (matches main page) -->
-  <nav class="navbar">
-    <div class="container">
-      <!-- Logo linking back to home -->
-      <a href="index.html" class="logo">Rayan Alam</a>
-      
-      <!-- Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="index.html#projects">Projects</a></li>
-        <li><a href="index.html#experience">Experience</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
+
+<body class="thank-page">
+
+  <div class="noise-overlay"></div>
+
+  <nav class="navbar scrolled">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Rayan<span>.</span>Alam</a>
     </div>
   </nav>
 
-  <!-- Main Content Section -->
   <main class="thank-you-section">
-    <div class="container">
-      <!-- Thank You Content Box -->
-      <div class="thank-you-content">
-        <!-- Checkmark icon -->
-        <i class="fas fa-check-circle"></i>
-        
-        <!-- Main heading -->
-        <h1>Thank You!</h1>
-        
-        <!-- Confirmation message -->
-        <p>Your message has been successfully sent. I'll get back to you soon.</p>
-        
-        <!-- Countdown message -->
-        <p>You'll be automatically redirected in <span id="countdown">5</span> seconds...</p>
-        
-        <!-- Manual return button -->
-        <a href="index.html" class="btn btn-primary">Return Home Now</a>
+    <div class="thank-you-card">
+
+      <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
       </div>
 
-      <!-- Countdown Timer Script -->
-      <script>
-        // Countdown timer for automatic redirect
-        let seconds = 5; // Initial countdown value
-        const countdown = document.getElementById('countdown'); // Get countdown element
-        
-        // Set up interval timer that runs every second
-        const timer = setInterval(() => {
-          // Decrement seconds
-          seconds--;
-          
-          // Update countdown display
-          countdown.textContent = seconds;
-          
-          // Check if countdown has reached 0
-          if (seconds <= 0) {
-            clearInterval(timer); // Stop the timer
-            window.location.href = 'index.html'; // Redirect to home page
-          }
-        }, 1000); // Run every 1000ms (1 second)
-      </script>
+      <p class="eyebrow center">Message Received</p>
+
+      <h1>Thank you.</h1>
+
+      <p class="thank-copy">
+        Your message has been successfully sent.
+        I’ll review it and get back to you as soon as possible.
+      </p>
+
+      <p class="redirect-text" aria-live="polite">
+        Redirecting home in <span id="countdown">5</span> seconds...
+      </p>
+
+      <div class="thank-actions">
+        <a href="index.html" class="btn btn-primary">
+          Return Home <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
     </div>
   </main>
+
+  <script>
+    let seconds = 5;
+    const countdown = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      seconds--;
+      countdown.textContent = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+  </script>
+
 </body>
 </html>

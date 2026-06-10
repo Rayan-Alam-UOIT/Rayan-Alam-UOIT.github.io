@@ -1,1332 +1,631 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <!-- Basic Meta Tags -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Rayan Alam | Portfolio</title>
-  <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=63777&format=png&color=000000">
-  
-  <!-- External CSS Links -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <meta name="description" content="Rayan Alam is a Computer Science student and AI/Data Science intern building full-stack software, applied AI systems, and cloud-based products." />
+
+  <link rel="icon" type="image/png" href="https://img.icons8.com/color/96/source-code.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="styles.css" />
-  
-  <!-- JavaScript -->
-  <script defer src="script.js"></script>
 </head>
+
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="logo">Rayan Alam</a>
-      
-      <!-- Desktop Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <div id="loader">
+    <div class="loader-logo">Rayan<span>.</span>Alam</div>
+  </div>
+
+  <div id="scroll-progress"></div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="noise-overlay"></div>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <i class="fa-solid fa-sun" id="themeIcon"></i>
+  </button>
+
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="https://rayan-alam-uoit.github.io/" class="logo">Rayan<span>.</span>Alam</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Stack</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      
-      <!-- Mobile Hamburger Menu -->
-      <div class="hamburger">
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Hey there, I'm Rayan!</h1>
-        <h2 id="typewriter-text"></h2> <!-- Typewriter effect will be inserted here -->
-        <!-- <p><em>~Building impactful solutions at every opportunity~</em></p> -->
-        <div class="cta-buttons">
-          <a href="#contact" class="btn btn-primary">Get in Touch</a>
-          <a href="#projects" class="btn btn-secondary">View My Work</a>
+  <header class="hero" id="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-content" data-reveal>
+        <div class="availability-row">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            Open to Internships & Co-op Opportunities
+          </div>
+
+          <div class="availability-pill">
+            Summer 2027 Ready
+          </div>
+        </div>
+
+        <h1 class="hero-headline">
+  <span class="line">Building </span>
+  <span class="line accent-line">software</span>
+  <span class="line">with real impact.</span>
+</h1>
+
+        <p class="hero-sub">
+          I'm <strong>Rayan Alam</strong>, a Computer Science student passionate about turning ideas into meaningful digital experiences. 🚀
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary magnetic" data-magnetic>
+            View Projects <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="files\Rayan Alam Resume.pdf" target="_blank" class="btn btn-secondary magnetic" data-magnetic>
+            Resume <i class="fa-solid fa-file-lines"></i>
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a href="https://github.com/Rayan-Alam-UOIT" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+
+          <a href="https://www.linkedin.com/in/rayan-alam/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+
+          <a href="mailto:alamrayan103@gmail.com">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="images/Rayan.jpeg" alt="Rayan Alam" class="profile-image">
+
+      <div class="hero-card" data-reveal data-reveal-delay="200">
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="terminal-title">~/rayan — zsh</span>
+          </div>
+
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">❯</span>
+              <span class="cmd">whoami</span>
+            </div>
+
+            <p class="terminal-output">Honours Computer Science Student @ Ontario Tech University</p>
+
+            <div class="terminal-line">
+              <span class="prompt">❯</span>
+              <span class="cmd">current_role</span>
+            </div>
+
+            <p class="terminal-output">Data Science & AI Development Intern @ Bravella Health</p>
+
+            <div class="terminal-line">
+              <span class="prompt">❯</span>
+              <span class="cmd typed-target"></span>
+              <span class="cursor-blink">█</span>
+            </div>
+
+            <div class="stack-pills" id="stackPills">
+               <span>AWS</span>
+              <span>Python</span>
+              <span>Angular</span>
+              <span>Capacitor</span>
+              <span>Flask</span>
+              <span>Linux</span>
+               <span>Node.js</span>
+              <span>NGINX</span>
+              <span>SQLite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-orbit">
+          <img src="images/Rayan.jpeg" alt="Rayan Alam" />
+        </div>
       </div>
+
     </div>
   </header>
 
-  <!-- About Me Section -->
-  <section id="about" class="section about">
+  <section class="impact-strip" data-reveal>
+    <div class="container impact-grid">
+
+      <div class="impact-card">
+      <h3>12+</h3>
+      <p>Months of industry experience</p>
+    </div>
+
+       <div class="impact-card">
+      <h3>4×</h3>
+      <p>President’s List recipient</p>
+    </div>
+
+    <div class="impact-card">
+      <h3>4.10</h3>
+      <p>cGPA in Computer Science</p>
+    </div>
+
+    <div class="impact-card">
+      <h3>10+</h3>
+      <p>Technical projects built</p>
+    </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container two-column">
+      <div data-reveal>
+        <p class="eyebrow">About Me</p>
+
+        <h2 class="section-title left">
+          I turn complex problems into clean, usable products.
+        </h2>
+
+        <div class="about-tags">
+  <span>Problem Solver</span>
+  <span>Fast Learner</span>
+  <span>Team Collaborator</span>
+  <span>Growth Mindset</span>
+  <span>Adaptable</span>
+</div>
+</div>
+
+      <div class="about-text" data-reveal data-reveal-delay="150">
+        <p> I'm a Honours Computer Science student at Ontario Tech University specializing in Software Development with a minor in Mathematics. I enjoy building software that combines practical engineering, thoughtful UI, and intelligent systems — especially products that solve meaningful real-world problems. </p>
+
+        <p> My work spans full-stack development, applied AI, data analysis, cloud deployment, and user-focused product improvements. Currently at Bravella Health, I help build AI-assisted clinical systems involving RAG pipelines, LLM infrastructure, frontend + backend development, and production-ready software. </p>
+
+        <p>
+  Outside of coding, I enjoy pushing myself beyond my comfort zone through volunteering, student communities, and continuous learning. When I’m not building software, you’ll usually find me working out, watching sports and superhero related content, or gaming to unwind and reset.
+</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section dark-section">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>I'm a highly ambitious and hard-working computer science student at Ontario Tech University, having finished two years with a cumulative GPA of 4.10 out of 4.30. I'm specializing in Data Science and pursuing a minor in Mathematics. I’m passionate about developing innovative software solutions that drive real-world impact, and I am currently working at Bravella Health to bring meaningful change through technology. <!--always seeking co-op opportunities to apply my skills in real-world scenarios. --></p>
-          <p>A bit about my background — I was born and raised in Ontario, Canada, while my parents are originally from Pakistan, with roots that trace across South Asia and the Middle East. In my free time, I enjoy playing and watching sports, especially basketball, soccer, and badminton. I love going to the gym, staying active, and maintaining a healthy lifestyle. I'm also an anime fan, with Vinland Saga and Bleach being two of my favourites. Occasionally, I like to unwind by playing video games with my friends.</p>
-          <p>Outside of coding, you can find me contributing to open-source projects, exploring new technologies, earning certifications, and actively engaging with my community through school clubs, hackathons, and social events.</p>
-          
-          <!-- Stats Grid -->
-          <div class="stats">
-            <div class="stat-item">
-              <span class="stat-number">3rd</span>
-              <span class="stat-label">Current Year of Study</span>
+      <p class="eyebrow center" data-reveal>Technical Stack</p>
+
+      <h2 class="section-title" data-reveal>
+        Tools I use to build, test, and deploy.
+      </h2>
+
+      <div class="skills-layout-new">
+        <div class="skill-bars" data-reveal>
+
+          <div class="skill-bar">
+            <div class="skill-bar-top">
+              <span>Full-Stack Development</span>
+              <small>Advanced</small>
             </div>
-            <div class="stat-item">
-              <span class="stat-number">4.10</span>
-              <span class="stat-label">cGPA</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">4x</span>
-              <span class="stat-label">President's Honours List</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">2028</span>
-              <span class="stat-label">Graduation Year</span>
-            </div>
+            <div class="bar"><span style="width: 90%;"></span></div>
           </div>
+
+          <div class="skill-bar">
+            <div class="skill-bar-top">
+              <span>Cloud & Infrastructure</span>
+              <small>Strong</small>
+            </div>
+            <div class="bar"><span style="width: 86%;"></span></div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-bar-top">
+              <span>AI / Machine Learning</span>
+              <small>Strong</small>
+            </div>
+            <div class="bar"><span style="width: 84%;"></span></div>
+          </div>
+
+          <div class="skill-bar"> <div class="skill-bar-top"> <span>Mobile Development</span> <small>Experienced</small> </div> <div class="bar"><span style="width: 78%;"></span></div> </div>
+
+          <div class="skill-bar"> <div class="skill-bar-top"> <span>Data Science & Analytics</span> <small>Strong</small> </div> <div class="bar"><span style="width: 80%;"></span></div> </div>
         </div>
-        
-        <!-- Image Slideshow -->
-        <div class="about-image">
-          <div class="slideshow-container">
-            <div class="slide active">
-              <img src="images/University.jpg" alt="Ontario Tech University">
-            </div>
-            <div class="slide">
-              <img src="images/Bravella.jpg" alt="Bravella Health">
-            </div>
-            <div class="slide">
-              <img src="images/Flags.jpg" alt="Flag">
-            </div>
-            <div class="slide">
-              <img src="images/Sports.jpg" alt="Sports">
-            </div>
-            <div class="slide">
-              <img src="images/CS.jpg" alt="Computer Science Club">
-            </div>
-            <div class="slide">
-              <img src="images/MSA.jpg" alt="Muslim Student Association">
-            </div>
-            <div class="slide">
-              <img src="images/PSA.jpg" alt="Pakistan Student Association">
-            </div>
-            <div class="slide">
-              <img src="images/Event.jpg" alt="University Event">
-            </div>
-            <div class="slide">
-              <img src="images/Microsoft1.jpg" alt="University Trip">
-            </div>
-            <div class="slide">
-              <img src="images/Microsoft2.jpg" alt="University Trip">
-            </div>
+
+        <div class="skills-cards" data-reveal data-reveal-delay="100">
+          <div class="skill-card" data-tilt>
+            <i class="fa-solid fa-code"></i>
+            <h3>Languages</h3>
+            <p>Python · Java · C/C++ · JavaScript · TypeScript · Dart · SQL · R · HTML · CSS</p>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <i class="fa-solid fa-layer-group"></i>
+            <h3>Frameworks</h3>
+            <p>Angular · React.js · Flask · Django · Node.js · Express.js · Flutter · Bootstrap · Tailwind</p>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <i class="fa-solid fa-cloud"></i>
+            <h3>Cloud & Tools</h3>
+            <p>AWS · Docker · Kubernetes · Git/GitHub · Nginx · Linux/Unix · Capacitor · Android Studio · Figma · VS Code</p>
+          </div>
+
+          <div class="skill-card" data-tilt>
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Libraries and Databases</h3>
+            <p>Pandas · NumPy · Scikit-learn · PyTorch · SQLite · FAISS · MySQL · Unsloth · Redux.js · Firebase</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- Skills Section -->
-<section id="skills" class="section skills">
-  <div class="container">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-      
-      <!-- Programming Languages -->
-      <div class="skill-category">
-        <h3><i class="fas fa-code"></i> Programming Languages</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
-            <span>Python</span>
+  <section id="projects" class="section">
+    <div class="container">
+      <p class="eyebrow center" data-reveal>Featured Work</p>
+
+      <h2 class="section-title" data-reveal>
+        Ideas turned into working systems.
+      </h2>
+
+      <div class="projects-grid">
+
+        <article class="project-card featured" data-tilt data-reveal>
+          <div class="project-glow"></div>
+
+          <div class="project-top">
+            <span class="project-label">Professional Experience</span>
+            <i class="fa-solid fa-brain"></i>
           </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="skill-icon">
-            <span>Java</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" class="skill-icon">
-            <span>Dart</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
-            <span>JavaScript</span>
-          </div>
-          <div class="skill-item">
-            
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-icon">
-            <span>TypeScript</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1200px-C_Programming_Language.svg.png" alt="C" class="skill-icon">
-            <span>C</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon">
-            <span>C++</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="SQL" class="skill-icon">
-            <span>SQL</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" class="skill-icon">
-            <span>R</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon">
-            <span>HTML5</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon">
-            <span>CSS3</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://user-images.githubusercontent.com/103866722/194773833-8571f323-4fa8-4036-a51c-57b9d29c683b.svg" alt="Assembly" class="skill-icon">
-            <span>x86-64 Assembly</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX" class="skill-icon">
-            <span>LaTeX</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Frameworks -->
-      <div class="skill-category">
-        <h3><i class="fas fa-layer-group"></i> Frameworks</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" alt="Angular" class="skill-icon">
-          <span>Angular</span>
-        </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="skill-icon">
-            <span>React.js</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" class="skill-icon">
-            <span>Express.js</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="skill-icon">
-            <span>Node.js</span>
-          </div>
-         
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="skill-icon">
-            <span>Flutter</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="skill-icon">
-            <span>Django</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="skill-icon">
+
+          <h3>ELLA-M Women's Health Assistant</h3>
+
+          <p>
+            Contributed to a production AI-powered clinical assistant using retrieval systems, secure APIs, cloud infrastructure, and full-stack development.
+          </p>
+
+          <div class="tech-list">
+            <span>Angular</span>
             <span>Flask</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="skill-icon">
-            <span>Bootstrap</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" class="skill-icon">
-            <span>Tailwind</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/d3js/d3js-original.svg" alt="Dash" class="skill-icon">
-            <span>Dash</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/junit/junit-original.svg" alt="JUnit" class="skill-icon">
-            <span>JUnit</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytest/pytest-original.svg" alt="Pytest" class="skill-icon">
-            <span>Pytest</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Tools -->
-      <div class="skill-category">
-        <h3><i class="fas fa-tools"></i> Tools</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon">
-            <span>Git</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" class="skill-icon">
-            <span>GitHub</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" class="skill-icon">
             <span>AWS</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="skill-icon">
-            <span>Kubernetes</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="skill-icon">
-            <span>Docker</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="skill-icon">
-            <span>Visual Studio Code</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ" class="skill-icon">
-            <span>IntelliJ IDEA</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" alt="Nginx" class="skill-icon">
+            <span>Node.js</span>
             <span>Nginx</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/anaconda/anaconda-original.svg" alt="Anaconda" class="skill-icon">
-            <span>Anaconda</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" class="skill-icon">
-            <span>Jupyter</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rstudio/rstudio-original.svg" alt="RStudio" class="skill-icon">
-            <span>RStudio</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" class="skill-icon">
-            <span>Android Studio</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="skill-icon">
-            <span>Linux/Unix</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://miro.medium.com/v2/resize:fit:440/1*J3G3akaMpUOLegw0p0qthA.png" alt="REST APIs" class="skill-icon">
-            <span>REST APIs</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cas-bridge.xethub.hf.co/xet-bridge-us/63d3eec885118edc0439bd98/b5b6c9df87c8c406e1f861d53537050e7f0ed7aaee4f7768fe9087ee7db54992?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20251224%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251224T222803Z&X-Amz-Expires=3600&X-Amz-Signature=a5dd9693724dbd69fe66ac1e7aa2697ecf6fb531324f449e065d4af593ca0f7a&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27hf-logo.svg%3B+filename%3D%22hf-logo.svg%22%3B&response-content-type=image%2Fsvg%2Bxml&x-id=GetObject&Expires=1766618883&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2NjYxODg4M319LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82M2QzZWVjODg1MTE4ZWRjMDQzOWJkOTgvYjViNmM5ZGY4N2M4YzQwNmUxZjg2MWQ1MzUzNzA1MGU3ZjBlZDdhYWVlNGY3NzY4ZmU5MDg3ZWU3ZGI1NDk5MioifV19&Signature=LU5vxsOoWOro694ylRp6s7hNHJqF80bsMcBEcZ5E2gD6gMBiPPDVI0MA4B-wnyS0BuEZrqF5%7E6iJXtZXMYPZEa0q2Sz2WMgeu2b7huGi320qYelEfFEQQmf%7ELu3VUQs0FpenGJ3A%7EcySVkX0176OVwUn2%7ESHwbknuKqIXL-uswbUmW3UVS1iaMezgqu81y1K8Fd9HACx5heGO3EpzSA98G7lSwhNwkEgNIeM4WWQi2MayEZsBe9nFQ6jYTpUQ5-HBYqlpRjTlfHkX5mH5bzgcQJba3rlJN1CdKWlPwzXYxQ5OoB2QNV9wphqfjesDSYqsaCjpe-xzP7kxXosgti%7EEg__&Key-Pair-Id=K2L8F4GPSG1IFC" alt="Hugging Face" class="skill-icon">
-            <span>Hugging Face</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" alt="Apache Maven" class="skill-icon">
-            <span>Apache Maven</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" class="skill-icon">
-            <span>Figma</span>
-          </div>
-          <div class="skill-item">
-            <img src="data:image/png;base64,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" alt="Miro" class="skill-icon">
-            <span>Miro</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Google Workspace" class="skill-icon">
-            <span>Google Workspace</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://img.icons8.com/color/512/microsoft-office-2019.png" alt="Microsoft Office" class="skill-icon">
-            <span>Microsoft Office</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Libraries -->
-      <div class="skill-category">
-        <h3><i class="fas fa-book"></i> Libraries</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" class="skill-icon">
-            <span>Scikit-learn</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-icon">
+            <span>SQLite</span>
             <span>PyTorch</span>
+            <span>Firebase</span>
+            <span>Capacitor</span>
           </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-icon">
-            <span>Pandas</span>
+
+          <div class="project-links">
+            <button class="proj-link open-modal" data-modal="ellaModal">
+              <i class="fa-solid fa-up-right-from-square"></i> Case Study
+            </button>
           </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon">
-            <span>NumPy</span>
+        </article>
+
+        <!-- DEALERSHIP --> <article class="project-card" data-tilt data-reveal data-reveal-delay="100"> <div class="project-top"> <span class="project-label">Full-Stack Development</span> <i class="fa-solid fa-car-side"></i> </div> <h3>Dealership Review Portal</h3> <p> Full-stack dealership platform featuring authentication, sentiment analysis, reviews, and cloud deployment using containerized services. </p> <div class="tech-list"> <span>React.js</span> <span>Express.js</span> <span>Django</span> <span>MongoDB</span> <span>Docker</span> <span>Kubernetes</span> <span>Bootstrap</span> <span>IBM Cloud</span></div> <div class="project-links"> <button class="proj-link open-modal" data-modal="dealershipModal"> <i class="fa-solid fa-up-right-from-square"></i> Case Study </button> </div> </article>
+
+        <!-- SPACEX --> <article class="project-card" data-tilt data-reveal data-reveal-delay="150"> <div class="project-top"> <span class="project-label">Data Science & Machine Learning</span> <i class="fa-solid fa-rocket"></i> </div> <h3>SpaceX Launch Prediction Tool</h3> <p> End-to-end data science pipeline using APIs, web scraping, SQL, dashboards, and machine learning classificationto predict launch success. </p> <div class="tech-list"> <span>Python</span> <span>Pandas</span> <span>NumPy</span>  <span>Scikit-Learn</span> <span>SQL</span> <span>Plotly</span> <span>Seaborn</span> <span>Matplotlib</span> </div> <div class="project-links"> <button class="proj-link open-modal" data-modal="spacexModal"> <i class="fa-solid fa-up-right-from-square"></i> Case Study </button> </div> </article>
+
+        <!-- TRIVIA --> <article class="project-card" data-tilt data-reveal data-reveal-delay="200"> <div class="project-top"> <span class="project-label">Software Engineering</span> <i class="fa-solid fa-gamepad"></i> </div> <h3>Multiplayer Trivia Game</h3> <p> Real-time multiplayer trivia platform featuring room management, live chat, multi-threading, client-server networking, and interactive gameplay systems. </p> <div class="tech-list"> <span>Java</span> <span>Java Swing</span> <span>Linux</span> <span>Apache Maven</span> </div> <div class="project-links"> <button class="proj-link open-modal" data-modal="triviaModal"> <i class="fa-solid fa-up-right-from-square"></i> Case Study </button> </div> </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="section dark-section">
+    <div class="container">
+      <p class="eyebrow center" data-reveal>Technical Architecture</p>
+
+      <h2 class="section-title" data-reveal>
+        How I think about systems, not just screens.
+      </h2>
+
+      <div class="architecture-card" data-reveal>
+        <div class="architecture-flow">
+          <div class="arch-node">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Problem First</h3>
+          <p>
+            I start by understanding the user problem, defining goals,
+            and breaking complex ideas into practical solutions.
+          </p>
+        </div>
+
+        <div class="arch-arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="arch-node">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h3>Frontend Experience</h3>
+          <p>
+            Building responsive, accessible, and intuitive interfaces
+            that feel smooth across desktop and mobile.
+          </p>
+        </div>
+
+        <div class="arch-arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="arch-node">
+          <i class="fa-solid fa-server"></i>
+          <h3>Backend Logic</h3>
+          <p>
+            Designing APIs, authentication & security flows, automation,
+            and scalable application logic.
+          </p>
+        </div>
+
+        <div class="arch-arrow">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="arch-node">
+          <i class="fa-solid fa-database"></i>
+          <h3>Data & Cloud</h3>
+          <p>
+            Working with databases, AI systems, cloud services,
+            and deployment pipelines to bring products to life.
+          </p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <p class="eyebrow center" data-reveal>Experience</p>
+
+      <h2 class="section-title" data-reveal>
+        Where I've been applying my skills.
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+            <span class="timeline-date">2025 — Present</span>
+
+            <h3>Data Science & AI Development Intern</h3>
+
+            <p class="timeline-company">Bravella Health</p>
+
+            <p>
+              Building AI-assisted health technology — AWS + SageMaker model deployment,
+              RAG pipelines, full-stack feature development, domain migrations, and security improvements.
+            </p>
+
+            <div class="tech-list">
+              <span>Python</span>
+              <span>AWS</span>
+              <span>SageMaker</span>
+              <span>Angular</span>
+              <span>Flask</span>
+            </div>
           </div>
-           <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux" class="skill-icon">
-            <span>Redux.js</span>
+        </div>
+
+        <div class="timeline-item" data-reveal data-reveal-delay="100">
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+            <span class="timeline-date">2023 — Present</span>
+
+            <h3>BSc Computer Science</h3>
+
+            <p class="timeline-company">Ontario Tech University</p>
+
+            <p>
+              Honours Computer Science student specializing in Data Science with a Mathematics minor.
+              Coursework across algorithms, software engineering, data systems, and AI.
+            </p>
+
+            <div class="tech-list">
+              <span>4.10 GPA</span>
+              <span>President's List</span>
+              <span>Data Science</span>
+            </div>
           </div>
-          <div class="skill-item">
-            <img src="https://cdn-avatars.huggingface.co/v1/production/uploads/62ecdc18b72a69615d6bd857/E4lkPz1TZNLzIFr_dR273.png" alt="Unsloth" class="skill-icon">
-            <span>Unsloth</span>
-          </div>
-           <div class="skill-item">
-            <img src="https://d2r9phh2n9g4lt.cloudfront.net/website/product-images/FAISS.png" alt="FAISS" class="skill-icon">
-            <span>FAISS</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" class="skill-icon">
-            <span>Matplotlib</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.worldvectorlogo.com/logos/seaborn-1.svg" alt="Seaborn" class="skill-icon">
-            <span>Seaborn</span>
-          </div>
-          <div class="skill-item">
-            
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/primeng/primeng-original.svg" alt="PrimeNG" class="skill-icon">
-            <span>PrimeNG</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/plotly/plotly-original.svg" alt="Plotly" class="skill-icon">
-            <span>Plotly</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Java Swing" class="skill-icon">
-            <span>Java Swing</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://python-visualization.github.io/folium/latest/_static/folium_logo.png" alt="Folium" class="skill-icon">
-            <span>Folium</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://miro.medium.com/v2/resize:fit:772/0*oN9jA-Ad3mRlPAYy.png" alt="Beautiful Soup" class="skill-icon">
-            <span>Beautiful Soup</span>
+        </div>
+
+        <div class="timeline-item" data-reveal data-reveal-delay="150">
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+            <span class="timeline-date">Ongoing</span>
+
+            <h3>Projects, Certifications & Community</h3>
+
+            <p class="timeline-company">Self-directed</p>
+
+            <p>
+              Building portfolio projects, earning technical certifications, publishing apps,
+              and continuously learning modern software and AI tooling.
+            </p>
           </div>
         </div>
       </div>
-      
-      <!-- Databases -->
-      <div class="skill-category">
-        <h3><i class="fas fa-database"></i> Databases</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-icon">
+    </div>
+  </section>
+
+  <section class="section resume-section">
+    <div class="container" data-reveal>
+      <div class="resume-preview-card">
+        <div class="resume-preview-left">
+          <p class="eyebrow">Resume</p>
+
+          <h2>Want the quick version?</h2>
+
+          <p>
+            Download my resume for a concise overview of my experience,
+            projects, skills, and education.
+          </p>
+
+          <a href="files\Rayan Alam Resume.pdf" target="_blank" class="btn btn-primary magnetic" data-magnetic>
+            Open Resume
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="resume-paper">
+          <div class="resume-paper-header">
+            <strong>Rayan Alam</strong>
+            <span>I'm a highly motivated student who loves...</span>
+          </div>
+
+           <div class="resume-mini-section">
+            <span>Education</span>
+            <div class="resume-line wide"></div>
+            <div class="resume-line short"></div>
+          </div>
+
+          <div class="resume-mini-section">
+            <span>Experience</span>
+            <div class="resume-line wide"></div>
+            <div class="resume-line"></div>
+          </div>
+
+          <div class="resume-mini-section">
+            <span>Projects</span>
+            <div class="resume-line wide"></div>
+            <div class="resume-line short"></div>
+          </div>
+
+          <div class="resume-mini-tags">
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>AWS</span>
+            <span>VS Code</span>
+            <span>PyTorch</span>
             <span>MySQL</span>
           </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="skill-icon">
-            <span>PostgreSQL</span>
-          </div>
-           <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" class="skill-icon">
-            <span>SQLite</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg" alt="MariaDB" class="skill-icon">
-            <span>MariaDB</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="skill-icon">
-            <span>MongoDB</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Languages -->
-      <div class="skill-category">
-        <h3><i class="fas fa-language"></i> Languages</h3>
-        <div class="skills-container">
-          <div class="skill-item">
-            <img src="https://images.vexels.com/media/users/3/163966/isolated/preview/6ecbb5ec8c121c0699c9b9179d6b24aa-england-flag-language-icon-circle.png" alt="English" class="skill-icon">
-            <span>English</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://images.vexels.com/content/164028/preview/france-flag-language-icon-circle-a36a3a.png" alt="French" class="skill-icon">
-            <span>French</span>
-          </div>
-          <div class="skill-item">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/033/046/831/small_2x/pakistan-flag-circle-3d-cartoon-style-png.png" alt="Urdu" class="skill-icon">
-            <span>Urdu</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- Education Section -->
-  <section id="education" class="section education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="timeline-container">
-        
-        <!-- University Education -->
-        <div class="timeline-item">
-  <div class="timeline-dot">
-    <div class="dot"></div>
-    <div class="timeline-line"></div>
-  </div>
-  <div class="timeline-content">
-    <div class="timeline-date">2023 - 2028</div>
-    <div class="timeline-card">
-      <div class="card-header">
-        <img src="https://shared.ontariotechu.ca/shared/department/research/discover/institutes-centres-and-groups/ot-shield" 
-             alt="Ontario Tech University Logo" 
-             class="edu-logo">
-        <h3>Ontario Tech University</h3>
-      </div>
-              <p class="degree">Bachelor of Science - BSc (Hons), Computer Science Co-op</p>
-              <div class="specialization">
-                <div class="specialization-item">
-                  <i class="fas fa-chart-line"></i>
-                  <span>Concentration: Data Science</span>
-                </div>
-                <div class="specialization-item">
-                  <i class="fas fa-square-root-alt"></i>
-                  <span>Minor: Mathematics</span>
-                </div>
-              </div>
-              <div class="gpa-badge">
-                <i class="fas fa-star"></i> Cumulative GPA: 4.10/4.30
-              </div>
-              <div class="courses">
-                <h4><i class="fas fa-book-open"></i> Relevant Coursework:</h4>
-                <div class="course-grid">
-                  <span class="course-pill">Introduction to Computer Science</span>
-                  <span class="course-pill">Programming Workshop</span>
-                  <span class="course-pill">Computer Architecture</span>
-                  <span class="course-pill">Data Structures</span>
-                  <span class="course-pill">Software Design</span>
-                  <span class="course-pill">Software Systems</span>
-                  <span class="course-pill">Computational Science</span>
-                  <span class="course-pill">Scientific Data Analysis</span>
-                  <span class="course-pill">Statistics and Probability</span>
-                  <span class="course-pill">Linear Algebra</span>
-                  <span class="course-pill">Discrete Math</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- High School Education -->
-        <div class="timeline-item">
-  <div class="timeline-dot">
-    <div class="dot"></div>
-    <div class="timeline-line"></div>
-  </div>
-  <div class="timeline-content">
-    <div class="timeline-date">2019 - 2023</div>
-    <div class="timeline-card">
-      <div class="card-header">
-        <img src="https://pbs.twimg.com/profile_images/1581090509166108673/_mgNb4MD_400x400.jpg" 
-             alt="Father Leo J. Austin Secondary School Logo" 
-             class="edu-logo">
-        <h3>Father Leo J. Austin Secondary School</h3>
-      </div>
-              <p class="degree">Ontario Secondary School Diploma (OSSD)</p>
-              <div class="gpa-badge">
-                <i class="fas fa-star"></i> Cumulative Average: 91%
-              </div>
-              <div class="activities">
-                <h4><i class="fas fa-users"></i> Activities and Societies:</h4>
-                <ul class="activity-list">
-                  <li><i class="fas fa-chalkboard-teacher"></i> Co-founder of Tutoring Club</li>
-                  <li><i class="fas fa-table-tennis"></i> Member of Badminton Club</li>
-                  <li><i class="fas fa-chess"></i> Member of Chess Club</li>
-                  <li><i class="fas fa-dumbbell"></i> Member of Weightlifting Club</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-grid">
-        
-        <!-- MY Voice Canada Mobile App -->
-        <div class="project-card">
-          <div class="project-image">
-            <div class="image-placeholder">
-              <img src="images/MYVoice.jpg" alt="MY Voice Canada Mobile App">
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 style="margin-bottom: 0.75rem;">MY Voice Canada Mobile App</h3>
-            <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-              <span class="tech-highlight">Featured Tech:</span>Flutter | Dart | Android Studio | Figma | Miro | VS Code
-            </p>
-            <p class="project-description">Designed and developed an Android app for a Muslim youth media organization. Collaborated in a 10-person team to create an engaging platform for youth content and community building.</p>
-            <div class="project-features">
-              <h4>Key Features:</h4>
-              <ul>
-                <li>User authentication system</li>
-                <li>Content management dashboard</li>
-                <li>Interactive community features</li>
-                <li>Responsive UI/UX design</li>
-              </ul>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Rayan-Alam-UOIT/MY-Voice-Canada-Mobile-App.git" target="_blank" class="btn btn-small">
-                <i class="fab fa-github"></i> View Code
-              </a>
-            </div>
-          </div>
-        </div>
+  <section id="contact" class="section contact-section dark-section">
+    <div class="container two-column">
+      <div data-reveal>
+        <p class="eyebrow">Contact</p>
 
-<!-- Scientific Data Analysis Project -->
-<div class="project-card">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/Rain.jpg" alt="Scientific Data Analysis Project">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">Scientific Data Analysis Report</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Python | NumPy | Pandas | Seaborn | Matplotlib | JupyterLab
-    </p>
-    <p class="project-description">Developed an end-to-end data workflow in Python on the rainfall crisis in Pakistan, to uncover patterns, trends, and insights that could support better understanding and potential solutions to the situation.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>Automated data cleaning</li>
-        <li>Exploratory data analysis</li>
-        <li>Insightful data visualizations</li>
-        <li>Jupyter Notebook formatting</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/Scientific-Data-Analysis-Project.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
+        <h2 class="section-title left">
+          Let's connect.
+        </h2>
 
-<!-- Multiplayer Trivia Quiz Game -->
-<div class="project-card">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/Quiz.jpg" alt="Trivia Quiz Game">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">Multiplayer Trivia Quiz Game</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Java Swing | Java | Git | Windows | Linux | IntelliJ
-    </p>
-    <p class="project-description">Designed and developed a real-time multiplayer trivia quiz game called "Those Who Know" that supports multiple concurrent players, enabling interactive and synchronized gameplay across clients.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>Server-client architecture</li>
-        <li>Dynamic question pool</li>
-        <li>Real-time game state</li>
-        <li>Multithreaded server handling</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/Multiplayer-Trivia-Quiz-Game.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Spam Detector Algorithm -->
-<div class="project-card">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/Spam.jpg" alt="Spam Detector Algorithm">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">Spam Detector Algorithm</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Java Swing | Java | Python | Matplotlib | Git | Maven | IntelliJ
-    </p>
-    <p class="project-description">Designed and developed a spam detection algorithm that leverages advanced conditional word probabilities to accurately classify and filter different types of emails.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>Interactive start screen</li>
-        <li>Enhanced performance metrics</li>
-        <li>Visual data insights</li>
-        <li>Improved spam classification</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/Spam-Detector-Algorithm.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- File Sharer Application -->
-<div class="project-card">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/File.jpg" alt="File Sharer Application">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">File Sharer Application</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Java Swing | Java | Git | Windows | Linux | IntelliJ
-    </p>
-    <p class="project-description">Designed and developed a real-time, multi-threaded file sharing system enabling client-server interactions through a variety of commands for a smooth user experience.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>Secure file operations</li>
-        <li>Integrated search functionality</li>
-        <li>Real-time file interaction</li>
-        <li>Cross-platform compatibility</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/File-Sharer-Application.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Fashion and Clothing Catalogue -->
-<div class="project-card">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/Clothes.jpg" alt="Fashion and Clothing Catalogue">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">Fashion and Clothing Catalogue</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Java Swing | Java | SQL | JUnit | Git | Maven | Figma | IntelliJ
-    </p>
-    <p class="project-description">Designed and developed a visually engaging fashion catalogue for seamless clothing storage and an endless browsing experience between administrators and users alike.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>SQL-backed data handling</li>
-        <li>Role-based authentication</li>
-        <li>Favorites management system</li>
-        <li>Advanced search filters</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/Fashion-and-Clothing-Catalogue.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- AI Chatbot Assistant -->
-<div class="project-card hidden-project">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/Chatbot.jpg" alt="AI Chatbot Assistant">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">AI Chatbot Assistant</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Node.js | Express.js | JavaScript | HTML5 | CSS3 | VS Code
-    </p>
-    <p class="project-description">A lightweight, browser-based AI chatbot application built with Node.js and Express, featuring a clean JavaScript frontend and real-time GPT-powered responses via the OpenAI API.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>Real-time chat</li>
-        <li>OpenAI integration</li>
-        <li>Minimalist frontend design</li>
-        <li>Simple backend routing</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/Software-Dev-AI-Chatbot.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Car Dealership Management Portal -->
-<div class="project-card hidden-project">
-  <div class="project-image">
-    <div class="image-placeholder">
-      <img src="images/Dealership.jpg" alt="Car Dealership Management Portal">
-    </div>
-  </div>
-  <div class="project-content">
-    <h3 style="margin-bottom: 0.75rem;">Car Dealership Management Portal</h3>
-    <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-      <span class="tech-highlight">Featured Tech:</span>Django | React.js | MongoDB | SQLite | Docker | Kubernetes
-    </p>
-    <p class="project-description">A full-stack dealership review platform enabling users to browse branches, post sentiment-analyzed reviews, and manage car data with scalable cloud deployment.</p>
-    <div class="project-features">
-      <h4>Key Features:</h4>
-      <ul>
-        <li>Sentiment-based reviews</li>
-        <li>Cloud-native deployment</li>
-        <li>Role-based access</li>
-        <li>Interactive dealership listings</li>
-      </ul>
-    </div>
-    <div class="project-links">
-      <a href="https://github.com/Rayan-Alam-UOIT/Car-Dealership-Review-Portal.git" target="_blank" class="btn btn-small">
-        <i class="fab fa-github"></i> View Code
-      </a>
-    </div>
-  </div>
-</div>
-
-      <!-- Space Launch Predictor -->
-      <div class="project-card hidden-project">
-        <div class="project-image">
-          <div class="image-placeholder">
-            <img src="images/SpaceX.jpg" alt="Space Launch Predictor">
-          </div>
-        </div>
-        <div class="project-content">
-        <h3 style="margin-bottom: 0.75rem;">SpaceX Launch Predictor</h3>
-        <p class="project-tech" style="margin-top: 0; margin-bottom: 1rem;">
-          <span class="tech-highlight">Featured Tech:</span>Python | Scikit-learn | Plotly Dash | REST APIs | JupyterLab
+        <p>
+          Whether it's a role, project, collaboration, or question — feel free to reach out.
         </p>
-          <p class="project-description">An end-to-end data science project analyzing SpaceX launches through web scraping, APIs, SQL, visualizations, and machine learning to predict mission success.</p>
-          <div class="project-features">
-            <h4>Key Features:</h4>
-            <ul>
-              <li>Interactive launch dashboards</li>
-              <li>Predictive success modeling</li>
-              <li>SQL-powered analysis</li>
-              <li>API-driven scraping</li>
-            </ul>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Rayan-Alam-UOIT/Space-X-Launch-Prediction-Tool.git" target="_blank" class="btn btn-small">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Show More Button -->
-    <div class="show-more-container" style="text-align: center; margin-top: 2rem;">
-      <button id="showMoreBtn" class="btn btn-primary">
-        <i class="fas fa-chevron-down"></i> Show More Projects
-      </button>
-    </div>
-  </div>
-      </div>
-    </div>
-  </section>
+        <div class="contact-links">
+          <a href="mailto:alamrayan103@gmail.com">
+            <i class="fa-solid fa-envelope"></i> Gmail
+          </a>
 
-  <!-- Work Experience Section -->
-  <section id="experience" class="section experience">
-    <div class="container">
-      <h2 class="section-title">Work Experience</h2>
-      <div class="timeline-container">
+          <a href="https://github.com/Rayan-Alam-UOIT" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
 
-        <!-- Bravella Health Experience -->
-        <div class="timeline-item">
-          <div class="timeline-dot">
-            <div class="dot"></div>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-date">2025 - Present</div>
-            <div class="timeline-card">
-              <div class="card-header">
-        <img src="images/Bravella.jpg"
-             alt="Bravella Health Logo"
-             class="edu-logo">
-        <h3>Bravella Health</h3>
-      </div>
-              <p class="position">Data Science and AI Development Intern</p>
-               <div class="impact-label">
-  <i class="fas fa-star"></i>
-  <span>Key Contributions</span>
-</div>
-              <div class="impact-grid">
-  <div class="impact-item">
-    <i class="fas fa-cloud"></i>
-    <span>SageMaker LLM (G5 GPU)</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-brain"></i>
-    <span>Qwen-3 14B + RAG</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-database"></i>
-    <span>100+ PubMed Articles</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-bolt"></i>
-    <span>50% Cost Reduction</span>
-  </div>
-</div>
-
-<details class="details-toggle">
-  <summary>View details</summary>
-  <ul class="detail-list">
-    <li>Develop and deploy a real-time SageMaker inference endpoint using a G5 GPU and a custom-trained Qwen-3 14B model with Hugging Face, PyTorch, and Unsloth</li>
-    <li>Implement a continuously updated RAG pipeline using FAISS vector indexing over 100+ PubMed articles</li>
-    <li>Build and maintain a Linux-based EC2 environment hosting an Angular frontend and Flask backend with Node.js + Nginx reverse proxy</li>
-    <li>Integrate secure HTTPS/SSL-TLS traffic and synchronize S3 data storage with a SQLite3 operational database</li>
-    <li>Collaborate with an AWS IT Architect to optimize infrastructure using EventBridge, Lambda, SES, GPU tuning, and token-level optimization</li>
-    <li>Reduce inference latency and operational costs by over 50%</li>
-    <li>Produce technical documentation, analytical spreadsheets, and Agile planning materials</li>
-  </ul>
-</details>
-            </div>
-          </div>
-        </div>
-
-  
-        <!-- Avis Budget Group Experience -->
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="dot"></div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-date">2021 - Present</div>
-          <div class="timeline-card">
-             <div class="card-header">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLHRlI-S1-0qIpMDyeL5QPAeF4inW-cC5IIg&s"
-             alt="Avis Budget Group Logo"
-             class="edu-logo">
-        <h3>Avis Budget Group</h3>
-      </div>
-            <p class="position">Car Washer</p>
-            <div class="impact-label">
-  <i class="fas fa-clipboard-list"></i>
-  <span>Key Responsibilities</span>
-</div>
-           <div class="impact-grid">
-  <div class="impact-item">
-    <i class="fas fa-car"></i>
-    <span>5–10 Vehicles / Shift</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-stopwatch"></i>
-    <span>15–20 min Turnaround</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-tools"></i>
-    <span>Maintenance Checks</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-chart-line"></i>
-    <span>Workflow Optimization</span>
-  </div>
-</div>
-
-<details class="details-toggle">
-  <summary>View details</summary>
-  <ul class="detail-list">
-    <li>Service 5–10 vehicles per shift with consistent exterior and interior detailing</li>
-    <li>Maintain strict turnaround times while meeting high cleanliness standards</li>
-    <li>Perform routine checks including tire pressure, fluids, and oil levels</li>
-    <li>Organize and restock supplies to minimize downtime and improve throughput</li>
-    <li>Apply customer feedback to continuously refine cleaning processes</li>
-  </ul>
-</details>
-
-          </div>
-        </div>
-      </div>
-
-  
-        <!-- MY Voice Canada Experience -->
-        <div class="timeline-item">
-          <div class="timeline-dot">
-            <div class="dot"></div>
-            <div class="timeline-line"></div>
-          </div>
-          <div class="timeline-content">
-            <div class="timeline-date">2022 - 2023</div>
-            <div class="timeline-card">
-              <div class="card-header">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz-qMnXsIEJvwTDPe34UcCn7JRGnxD4xRNhg&s"
-             alt="MY Voice Canada Logo"
-             class="edu-logo">
-        <h3>MY Voice Canada</h3>
-      </div>
-              <p class="position">Mobile App Developer & UI/UX Designer</p>
-                <div class="impact-label">
-                <i class="fas fa-star"></i>
-  <span>Key Contributions</span>
-</div>
-              <div class="impact-grid">
-  <div class="impact-item">
-    <i class="fas fa-mobile-alt"></i>
-    <span>Android App</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-users"></i>
-    <span>10-Person Team</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-pencil-ruler"></i>
-    <span>UI/UX Leadership</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-award"></i>
-    <span>Best Team 2022</span>
-  </div>
-</div>
-
-<details class="details-toggle">
-  <summary>View details</summary>
-  <ul class="detail-list">
-    <li>Developed an Android app for Muslim youth-generated media distributed via the Google Play Store</li>
-    <li>Worked within a 10-member cross-provincial Agile team, earning Best Team of the Year (2022)</li>
-    <li>Led UI/UX design using Figma and Miro, focusing on accessibility and visual consistency</li>
-    <li>Built Flutter/Dart components in VS Code and managed Git/GitHub version control</li>
-    <li>Tested and debugged features in Android Studio</li>
-    <li>Tracked feedback, documented meetings, and maintained project timelines</li>
-  </ul>
-</details>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Volunteer Experience Section -->
-  <section class="section volunteering">
-    <div class="container">
-      <h2 class="section-title">Volunteer Experience</h2>
-      <div class="timeline-container">
-        <div class="timeline-content">
-          <div class="timeline-date">Summer 2019</div>
-          <div class="timeline-card">
-           <div class="card-header">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWZgrgLljJiEaj7IfYXmSPrSHd1Boed_lvYQ&s"
-             alt="Calvary Baptist Church Logo"
-             class="edu-logo">
-        <h3>Calvary Baptist Church</h3>
-      </div>
-            <p class="position">Summer Camp Counsellor</p>
-              <div class="impact-label">
-              <i class="fas fa-clipboard-list"></i>
-  <span>Key Responsibilities</span>
-</div>
-           <div class="impact-grid">
-  <div class="impact-item">
-    <i class="fas fa-users"></i>
-    <span>Youth Leadership</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-shield-alt"></i>
-    <span>Camper Safety</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-comments"></i>
-    <span>Community Building</span>
-  </div>
-  <div class="impact-item">
-    <i class="fas fa-clock"></i>
-    <span>80+ Volunteer Hours</span>
-  </div>
-</div>
-
-<details class="details-toggle">
-  <summary>View details</summary>
-  <ul class="detail-list">
-    <li>Created a safe, inclusive environment for campers in outdoor settings including forests and lakeshores</li>
-    <li>Handled unexpected situations with professionalism to ensure camper safety and well-being</li>
-    <li>Led educational and team-based activities fostering creativity, teamwork, and personal growth</li>
-    <li>Facilitated group discussions to encourage reflection and community bonding</li>
-    <li>Coordinated with counsellors and parents to support smooth daily operations</li>
-    <li>Completed over 80 hours of volunteer service, exceeding provincial graduation requirements</li>
-  </ul>
-</details>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Awards Section -->
-  <section id="awards" class="section awards">
-    <div class="container">
-      <h2 class="section-title">Awards & Certifications</h2>
-      <div class="awards-grid">
-
-      <!-- Google Cybersecurity Certificate -->
-      <div class="award-card">
-        <div class="award-icon">
-          <i class="fas fa-shield-alt"></i>
-        </div>
-        <div class="award-content">
-          <h3>Google Cybersecurity Professional Certificate</h3>
-          <p class="award-org">Google</p>
-          <p class="award-date">May 2025</p>
-          <div class="award-badge">Technical Skills</div>
-          <p class="award-desc">Completed Google's professional cybersecurity training program covering network security, SIEM tools, threat detection, and incident response through hands-on labs and case studies</p>
-          <div class="award-links">
-            <a href="files\Google Cybersecurity.pdf" target="_blank" class="btn btn-small">
-              <i class="fas fa-certificate"></i> View Certificate
-            </a>
-          </div>
-        </div>
-      </div>
-
-    <!-- IBM Data Science  Certificate -->
-    <div class="award-card">
-      <div class="award-icon">
-       <i class="fas fa-project-diagram"></i>
-      </div>
-      <div class="award-content">
-        <h3>IBM Data Science Professional Certificate</h3>
-        <p class="award-org">IBM</p>
-        <p class="award-date">June 2025</p>
-        <div class="award-badge">Technical Skills</div>
-        <p class="award-desc">Completed IBM's comprehensive data science program covering Python for data science, data visualization, machine learning, and data analysis using IBM tools and Jupyter notebooks</p>
-        <div class="award-links">
-          <a href="files/IBM Data Science.pdf" target="_blank" class="btn btn-small">
-            <i class="fas fa-certificate"></i> View Certificate
+          <a href="https://www.linkedin.com/in/rayan-alam/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
         </div>
       </div>
-    </div>
 
-    <!-- IBM Full Stack Software Developer  Certificate -->
-    <div class="award-card">
-      <div class="award-icon">
-       <i class="fas fa-laptop-code"></i>
-      </div>
-      <div class="award-content">
-        <h3>IBM Full Stack Software Developer Professional Certificate</h3>
-        <p class="award-org">IBM</p>
-        <p class="award-date">June 2025</p>
-        <div class="award-badge">Technical Skills</div>
-        <p class="award-desc">Completed IBM's full-stack developer program covering cloud-native applications, front-end frameworks, back-end development, databases, and DevOps practices using IBM Cloud and industry tools.</p>
-        <div class="award-links">
-          <a href="files/IBM Full Stack.pdf" target="_blank" class="btn btn-small">
-            <i class="fas fa-certificate"></i> View Certificate
-          </a>
+      <form
+  id="contactForm"
+  class="contact-form"
+  action="https://formsubmit.co/cacc296b5bf091bcb5a3e3b8840053b7"
+  method="POST"
+  data-reveal
+  data-reveal-delay="150"
+>
+ <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://rayan-alam-uoit.github.io/thank-you.html">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+          <small></small>
         </div>
-      </div>
-    </div>
 
-      <!-- DELF Certificate -->
-        <div class="award-card">
-          <div class="award-icon">
-            <i class="fas fa-language"></i>
-          </div>
-          <div class="award-content">
-            <h3>DELF A2 Certificate</h3>
-            <p class="award-org">French Ministry of Education</p>
-            <p class="award-date">May 2023</p>
-            <div class="award-badge">Language Proficiency</div>
-            <p class="award-desc">Officially certified by the French Ministry of Education, demonstrating intermediate proficiency in reading, writing, listening, and speaking French at the CEFR A2 level</p>
-            <div class="award-links">
-              <a href="files\DELF A2.pdf" target="_blank" class="btn btn-small">
-                <i class="fas fa-certificate"></i> View Certificate
-              </a>
-            </div>  
-          </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+          <small></small>
         </div>
-        
-        <!-- Thousand Coffees Certification -->
-        <div class="award-card">
-          <div class="award-icon">
-            <i class="fas fa-comments"></i>
-          </div>
-          <div class="award-content">
-            <h3>Ten Thousand Coffees Member Certificate</h3>
-            <p class="award-org">Ten Thousand Coffees</p>
-            <p class="award-date">March 2025 - March 2026</p>
-            <div class="award-badge">Networking</div>
-            <p class="award-desc">Certified in professional networking strategies and mentorship best practices through Canada's largest networking platform, connecting with industry professionals across multiple sectors</p>
-            <div class="award-links">
-              <a href="files\Ten Thousand Coffees.pdf" target="_blank" class="btn btn-small">
-                <i class="fas fa-certificate"></i> View Certificate
-              </a>
-            </div> 
-          </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+          <small></small>
         </div>
-        
-        <!-- President's Honours List -->
-        <div class="award-card">
-          <div class="award-icon">
-            <i class="fas fa-scroll"></i>
-          </div>
-          <div class="award-content">
-            <h3>President's Honours List</h3>
-            <p class="award-org">Ontario Tech University</p>
-            <p class="award-date">Feburary 2024, June 2024, Feburary 2025, June 2025</p>
-            <div class="award-badge">Academic Achievement</div>
-            <p class="award-desc">Awarded for maintaining a fall/winter semester GPA of 3.8 or higher on at least 80% of a full course load</p>
-          </div>
-        </div>
-        
-        <!-- Ontario Tech Scholarship 1 -->
-        <div class="award-card">
-          <div class="award-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <div class="award-content">
-            <h3>Ontario Tech Entrance Scholarship</h3>
-            <p class="award-org">Ontario Tech University</p>
-            <p class="award-date">August 2023</p>
-            <div class="award-badge">Academic Achievement</div>
-            <p class="award-desc">Awarded $2000 for maintaining a 90 to 94.9 percent average in the top six 4U/4M courses in Grade 12</p>
-          </div>
-        </div>
-        
-        <!-- Ontario Tech Scholarship 2 -->
-        <div class="award-card">
-          <div class="award-icon">
-            <i class="fas fa-award"></i>
-          </div>
-          <div class="award-content">
-            <h3>Ontario Tech In-Course Scholarship</h3>
-            <p class="award-org">Ontario Tech University</p>
-            <p class="award-date">August 2024, August 2025</p>
-            <div class="award-badge">Academic Achievement</div>
-            <p class="award-desc">Awarded $1500 for maintaining a GPA of 4.0 or higher in fall and winter semesters combined</p>
-          </div>
-        </div>
-        
-        <!-- Best Team Award -->
-        <div class="award-card">
-          <div class="award-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="award-content">
-            <h3>Best Team of 2022 Award</h3>
-            <p class="award-org">MY Voice Canada</p>
-            <p class="award-date">September 2022</p>
-            <div class="award-badge">Team Achievement</div>
-            <p class="award-desc">Awarded for outstanding collaboration and dedication on the MY Voice Canada mobile app project</p>
-          </div>
-        </div>
-      </div>
+
+        <button id="submitBtn" type="submit" class="btn btn-primary magnetic" data-magnetic>
+          <span class="submit-text">Send Message</span>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section contact">
-    <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <h3>Let's Connect!</h3>
-          <p>I'm currently looking for co-op opportunities and would love to hear about potential positions or collaborations.</p>
-          
-          <!-- Contact Methods -->
-          <div class="contact-methods">
-            <a href="mailto:alamrayan103@gmail.com" class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>alamrayan103@gmail.com</span>
-            </a>
-            
-            <a href="https://github.com/Rayan-Alam-UOIT" target="_blank" class="contact-item">
-              <i class="fab fa-github"></i>
-              <span>github.com/Rayan-Alam-UOIT</span>
-            </a>
-            
-            <a href="https://www.linkedin.com/in/rayan-alam/" target="_blank" class="contact-item">
-              <i class="fab fa-linkedin"></i>
-              <span>linkedin.com/in/rayan-alam</span>
-            </a>
-
-            <a href="https://maps.app.goo.gl/k5ZX7igHzb9CJLGX6" target="_blank" class="contact-item location-link">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Whitby, Ontario, Canada</span>
-            </a>
-          </div>
-
-          <!-- Download Resume Button -->
-          <a href="files/Rayan Alam Resume.pdf" target="_blank" download class="download-resume-btn">
-            <i class="fas fa-file-download"></i> Download & View My Resume
-          </a>
-        </div>
-        
-        <!-- Contact Form -->
-        <form id="contactForm" action="https://formsubmit.co/alamrayan103@gmail.com" method="POST" class="contact-form">
-          <!-- FormSubmit required fields -->
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://rayan-alam-uoit.github.io/thank-you.html">
-          <input type="hidden" name="_subject" value="New message from your portfolio">
-          
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" name="subject" placeholder="Subject">
-          </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-       <div class="footer-logo">
-        <a href="#">Rayan Alam</a>
-        <div class="footer-description">
-          <p><i class="fas fa-graduation-cap"></i> Computer Science Student</p>
-          <p><i class="fas fa-chart-line"></i> Data Science & AI Developer</p>
-          <p><i class="fas fa-code"></i> Full Stack Enthusiast</p>
-          <p><i class="fas fa-robot"></i> Applied AI Explorer</p>
-           <p><i class="fas fa-lightbulb"></i> Tech Passionate & Problem Solver</p>
-        </div>
-      </div>
-        
-        <!-- Footer Links -->
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-            <li><a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a></li>
-            <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-          </ul>
-        </div>
-        
-        <!-- Social Links -->
-        <div class="footer-social">
-          <h3>Connect With Me</h3>
-          <div class="social-icons">
-            <a href="mailto:alamrayan103@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/Rayan-Alam-UOIT" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/rayan-alam/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="files/Rayan Alam Resume.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Copyright -->
-      <div class="footer-bottom">
-        <p>&copy; 2025 Rayan Alam. All rights reserved.</p>
-      </div>
+    <div class="container footer-content">
+      <p>© 2026 Rayan Alam. Built with HTML, CSS, & Advanced JavaScript.</p>
+
+      <a href="#" class="back-top">
+        Back to top <i class="fa-solid fa-arrow-up"></i>
+      </a>
     </div>
   </footer>
+
+  <!-- ELLA-M MODAL --> <div class="modal" id="ellaModal" aria-hidden="true"> <div class="modal-backdrop close-modal"></div> <div class="modal-content"> <button class="modal-close close-modal" aria-label="Close modal"> <i class="fa-solid fa-xmark"></i> </button> <p class="eyebrow">Case Study</p> <h2>ELLA-M Clinical AI Platform</h2> <div class="modal-grid"> <div> <h3>Problem</h3> <p> Clinicians needed faster access to evidence-backed medical information while keeping responses reliable, cited, and easy to understand. </p> </div> <div> <h3>Solution</h3> <p> Contributed to a production AI platform using retrieval systems, cloud-hosted LLM infrastructure, secure APIs, and full-stack web/mobile workflows. </p> </div> <div> <h3>My Role</h3> <p> Worked across frontend and backend development, cloud workflows, authentication, infrastructure improvements, security updates, and production troubleshooting. </p> </div> <div> <h3>Impact</h3> <p> Helped improve usability, reliability, and scalability for a clinician-facing platform supporting real-world healthcare workflows. </p> </div> </div> <div class="tech-list">
+            <span>Angular</span>
+            <span>Flask</span>
+            <span>AWS</span>
+            <span>Node.js</span>
+            <span>Nginx</span>
+            <span>SQLite</span>
+            <span>PyTorch</span>
+            <span>Firebase</span>
+            <span>Capacitor</span>
+          </div></div> </div>
+
+ <!-- DEALERSHIP MODAL --> <div class="modal" id="dealershipModal" aria-hidden="true"> <div class="modal-backdrop close-modal"></div> <div class="modal-content"> <button class="modal-close close-modal" aria-label="Close modal"> <i class="fa-solid fa-xmark"></i> </button> <p class="eyebrow">Case Study</p> <h2>Dealership Review Portal</h2> <div class="modal-grid"> <div> <h3>Problem</h3> <p> Build a platform where users could browse dealerships, explore reviews, and share experiences in a centralized system. </p> </div> <div> <h3>Solution</h3> <p> Developed a full-stack web application with authentication, dealership filtering, sentiment analysis, and cloud deployment using containerized services. </p> </div> <div> <h3>My Role</h3> <p> Built and integrated frontend and backend functionality, worked with databases, deployment tooling, and cloud-based service integration. </p> </div> <div> <h3>Impact</h3> <p> Strengthened my experience with production-style architecture, scalable deployment, and modern full-stack workflows. </p> </div> </div> <div class="tech-list"> <span>React.js</span> <span>Express.js</span> <span>Django</span> <span>MongoDB</span> <span>Docker</span> <span>Kubernetes</span> <span>Bootstrap</span> <span>IBM Cloud</span></div>  </div> </div> </div>
+
+  <!-- SPACEX MODAL --> <div class="modal" id="spacexModal" aria-hidden="true"> <div class="modal-backdrop close-modal"></div> <div class="modal-content"> <button class="modal-close close-modal" aria-label="Close modal"> <i class="fa-solid fa-xmark"></i> </button> <p class="eyebrow">Case Study</p> <h2>SpaceX Launch Prediction Tool</h2> <div class="modal-grid"> <div> <h3>Problem</h3> <p> Analyze SpaceX launch history to uncover patterns and predict mission success based on launch data. </p> </div> <div> <h3>Solution</h3> <p> Built an end-to-end data science pipeline involving APIs, web scraping, SQL analysis, visual dashboards, and predictive ML models. </p> </div> <div> <h3>My Role</h3> <p> Collected and cleaned datasets, performed EDA, built visualizations, trained classification models, and evaluated prediction accuracy. </p> </div> <div> <h3>Impact</h3> <p> Achieved ~84% prediction accuracy while identifying relationships between payload mass, orbit type, and mission success. </p> </div> </div><div class="tech-list"> <span>Python</span> <span>Pandas</span> <span>NumPy</span>  <span>Scikit-Learn</span> <span>SQL</span> <span>Plotly</span> <span>Seaborn</span> <span>Matplotlib</span> </div>  </div> </div>
+
+  <!-- TRIVIA MODAL --> <div class="modal" id="triviaModal" aria-hidden="true"> <div class="modal-backdrop close-modal"></div> <div class="modal-content"> <button class="modal-close close-modal" aria-label="Close modal"> <i class="fa-solid fa-xmark"></i> </button> <p class="eyebrow">Case Study</p> <h2>Multiplayer Trivia Game</h2> <div class="modal-grid"> <div> <h3>Problem</h3> <p> Create an engaging real-time multiplayer game where users could compete, chat, and interact across multiple trivia categories. </p> </div> <div> <h3>Solution</h3> <p> Developed a multiplayer trivia platform with room management, client-server communication, power-ups, live chat, timers, and synchronized gameplay. </p> </div> <div> <h3>My Role</h3> <p> Led interface implementation, developed settings/music systems, contributed frontend features, debugging, and team collaboration. </p> </div> <div> <h3>Impact</h3> <p> Strengthened experience in software architecture, networking concepts, collaboration, and large-team development workflows. </p> </div> </div> <div class="tech-list"> <span>Java</span> <span>Java Swing</span> <span>Linux</span> <span>Apache Maven</span> </div></div> </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
