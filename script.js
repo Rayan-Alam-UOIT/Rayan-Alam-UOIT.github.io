@@ -199,6 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const z = (Math.random() - 0.5) * 180;
       positions[i * 3 + 2] = z > 60 ? z - 80 : z;
 
+      
+
       const color =
         palette[Math.floor(Math.random() * palette.length)];
 
@@ -218,11 +220,11 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     const material = new THREE.PointsMaterial({
-      size: 0.55,
+      size: 1.6,
       vertexColors: true,
       transparent: true,
-      opacity: 0.62,
-      sizeAttenuation: true
+      opacity: 0.5,
+      sizeAttenuation: false
     });
 
     const particles = new THREE.Points(geometry, material);
@@ -231,12 +233,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let mouseInfluenceX = 0;
     let mouseInfluenceY = 0;
 
+    let targetCameraX = 0;
+let targetCameraY = 0;
+
     document.addEventListener("mousemove", event => {
       mouseInfluenceX =
         (event.clientX / window.innerWidth - 0.5) * 2;
 
       mouseInfluenceY =
         -(event.clientY / window.innerHeight - 0.5) * 2;
+
+         targetCameraX = mouseInfluenceX * 5;
+  targetCameraY = mouseInfluenceY * 3.5;
     });
 
     window.addEventListener("resize", () => {
@@ -259,10 +267,18 @@ document.addEventListener("DOMContentLoaded", () => {
       frame += 0.003;
 
       particles.rotation.y =
-        frame * 0.12 + mouseInfluenceX * 0.04;
+        frame * 0.08 + mouseInfluenceX * 0.04;
 
       particles.rotation.x =
-        frame * 0.07 + mouseInfluenceY * 0.03;
+        frame * 0.05 + mouseInfluenceY * 0.03;
+
+      camera.position.x +=
+      (targetCameraX - camera.position.x) * 0.05;
+
+      camera.position.y +=
+      (targetCameraY - camera.position.y) * 0.05;
+
+camera.lookAt(scene.position);
 
       renderer.render(scene, camera);
     };
