@@ -436,7 +436,7 @@ body:has(button:hover) .cursor-ring {
   font-size: 1.08rem;
   color: var(--muted);
   line-height: 1.75;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
 }
 
 .hero-sub strong {
@@ -448,7 +448,7 @@ body:has(button:hover) .cursor-ring {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ==============================

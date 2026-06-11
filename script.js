@@ -264,7 +264,7 @@ let targetCameraY = 0;
     const animate = () => {
       requestAnimationFrame(animate);
 
-      frame += 0.003;
+      frame += 0.008;
 
       particles.rotation.y =
         frame * 0.08 + mouseInfluenceX * 0.04;
