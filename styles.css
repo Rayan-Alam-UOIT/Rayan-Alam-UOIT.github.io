@@ -335,7 +335,7 @@ body:has(button:hover) .cursor-ring {
   width: 18px;
   height: 1.5px;
   background: var(--heading);
-  margin: 5px auto;
+  margin: 2px auto;
   transition: 0.3s ease;
 }
 
