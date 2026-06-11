@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     const material = new THREE.PointsMaterial({
-      size: 1.6,
+      size: 2.5,
       vertexColors: true,
       transparent: true,
       opacity: 0.5,
