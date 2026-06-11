@@ -1958,12 +1958,26 @@ body:has(button:hover) .cursor-ring {
     rgba(255,255,255,0.02);
 }
 
+.ibm-logo {
+  width: 105px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+[data-theme="light"] .ibm-logo {
+  filter: none;
+}
+
 .google-bg {
   background:
     radial-gradient(circle at top right,
     rgba(66,133,244,0.14),
     transparent 60%),
     rgba(255,255,255,0.02);
+}
+
+.google-logo {
+  width: 68px;
 }
 
 .france-bg {
@@ -2119,4 +2133,31 @@ body:has(button:hover) .cursor-ring {
     width: 44px;
     height: 44px;
   }
+}
+
+.cert-coming {
+  opacity: 0.92;
+  border-style: dashed;
+}
+
+.cert-coming:hover {
+  transform: translateY(-6px);
+}
+
+.coming-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(74,240,196,0.12),
+      rgba(124,107,245,0.12)
+    );
+}
+
+.coming-bg i {
+  font-size: 2rem;
+  color: var(--accent);
+  opacity: 0.9;
 }
