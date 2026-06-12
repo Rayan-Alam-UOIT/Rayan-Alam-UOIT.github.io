@@ -448,7 +448,7 @@ body:has(button:hover) .cursor-ring {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 }
 
 /* ==============================
