@@ -545,4 +545,13 @@ camera.lookAt(scene.position);
     });
   });
 
+  /* ---- FLOATING PROFILE ORBIT ---- */
+gsap.to(".profile-orbit", {
+  y: -12,
+  duration: 2.5,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut"
+});
+
 });
