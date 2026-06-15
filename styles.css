@@ -345,7 +345,7 @@ body:has(button:hover) .cursor-ring {
 
 .hero {
   min-height: 100vh;
-  padding: 130px 0 80px;
+  padding: 110px 0 80px;
   display: flex;
   align-items: center;
 }
