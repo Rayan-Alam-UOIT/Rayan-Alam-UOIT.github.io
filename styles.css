@@ -2161,3 +2161,121 @@ body:has(button:hover) .cursor-ring {
   color: var(--accent);
   opacity: 0.9;
 }
+
+.coursework-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;
+}
+
+.course-card{
+  border:1px solid var(--border);
+  background:var(--card);
+  backdrop-filter:blur(18px);
+  border-radius:var(--radius);
+  padding:1.6rem;
+  transition:border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.course-card:hover{
+  border-color:var(--border-hover);
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(74,240,196,0.08);
+}
+
+.course-card-head{
+  display:flex;
+  align-items:center;
+  gap:0.7rem;
+  margin-bottom:1.3rem;
+  padding-bottom:1.1rem;
+  border-bottom:1px solid var(--border);
+}
+
+.course-card-head i{
+  color:var(--accent);
+  font-size:1.3rem;
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:rgba(74,240,196,0.08);
+  border:1px solid rgba(74,240,196,0.18);
+}
+
+.course-card-head h3{
+  color:var(--heading);
+  font-family:var(--font-display);
+  font-size:1.02rem;
+  margin:0;
+}
+
+.course-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.course-card li{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:0.8rem;
+  padding:0.65rem 0.15rem;
+  border-bottom:1px dashed var(--border);
+  transition:background .2s ease, padding-left .2s ease;
+  border-radius:8px;
+}
+
+.course-card li:last-child{
+  border-bottom:none;
+}
+
+.course-card li:hover{
+  background:rgba(74,240,196,0.05);
+  padding-left:0.5rem;
+}
+
+.course-name{
+  color:var(--text);
+  font-size:0.88rem;
+  line-height:1.4;
+}
+
+.course-code{
+  flex-shrink:0;
+  font-family:var(--font-mono);
+  font-size:0.7rem;
+  font-weight:600;
+  color:var(--accent);
+  background:rgba(74,240,196,0.07);
+  border:1px solid var(--border);
+  padding:0.22rem 0.55rem;
+  border-radius:999px;
+  white-space:nowrap;
+}
+
+@media (max-width: 900px){
+  .coursework-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.projects-more{
+  display:flex;
+  justify-content:center;
+  margin-top:2.5rem;
+}
+
+.projects-btn{
+  padding:1rem 1.75rem;
+  font-size:1rem;
+  box-shadow:0 16px 40px rgba(74,240,196,.15);
+}
+
+.projects-btn:hover{
+  box-shadow:0 20px 50px rgba(74,240,196,.25);
+}

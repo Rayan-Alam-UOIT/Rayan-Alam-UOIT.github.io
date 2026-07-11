@@ -56,7 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       sections.forEach(section => {
         if (window.scrollY >= section.offsetTop - 140) {
-          current = section.id;
+          current =
+            section.dataset.navSection ||
+            section.id;
         }
       });
     }
