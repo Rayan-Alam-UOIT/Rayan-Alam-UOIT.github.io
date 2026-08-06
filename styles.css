@@ -3121,3 +3121,7 @@ html[data-theme="light"] .ai-architecture-note {
     transition: none;
   }
 }
+
+.hero-headline .line{
+    display:block;
+}

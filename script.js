@@ -17,6 +17,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 650);
   }
 
+  setTimeout(() => {
+
+    loader.classList.add("hidden-loader");
+
+    gsap.set(".hero-headline .line", {
+        y: 40,
+        opacity: 0
+    });
+
+    gsap.set(".hero-sub", {
+        y: 20,
+        opacity: 0
+    });
+
+    gsap.set(".hero-actions .btn", {
+        y: 20,
+        opacity: 0
+    });
+
+    gsap.timeline()
+
+    .to(".hero-headline .line", {
+        y: 0,
+        opacity: 1,
+        stagger: 0.15,
+        duration: 0.7,
+        ease: "power3.out"
+    })
+
+    .to(".hero-sub", {
+        y: 0,
+        opacity: 1,
+        duration: 0.5
+    }, "-=0.35")
+
+    .to(".hero-actions .btn", {
+        y: 0,
+        opacity: 1,
+        stagger: 0.12,
+        duration: 0.45
+    }, "-=0.25");
+
+}, 700);
+
   /* ---- SCROLL PROGRESS ---- */
   const progressBar = document.getElementById("scroll-progress");
 
@@ -363,6 +407,41 @@ camera.lookAt(scene.position);
     revealObserver.observe(element);
   });
 
+  document.querySelectorAll(".counter").forEach(counter => {
+
+    const observer = new IntersectionObserver(entries => {
+
+        if (!entries[0].isIntersecting) return;
+
+        observer.disconnect();
+
+        const target = parseFloat(counter.dataset.target);
+const suffix = counter.dataset.suffix ?? "";
+
+const obj = { value: 0 };
+
+gsap.to(obj, {
+    value: target,
+    duration: 3.8,
+    ease: "power3.out",
+
+    onUpdate: () => {
+
+        if (Number.isInteger(target)) {
+    counter.textContent = `${Math.round(obj.value)}${suffix}`;
+} else {
+    counter.textContent = `${obj.value.toFixed(2)}${suffix}`;
+}
+
+    }
+});
+
+    }, { threshold: 0.4 });
+
+    observer.observe(counter);
+
+});
+
   /* ---- TILT EFFECT ---- */
   const tiltCards = document.querySelectorAll("[data-tilt]");
 
@@ -413,6 +492,42 @@ camera.lookAt(scene.position);
       button.style.transition = "transform 0.1s ease";
     });
   });
+
+  document.querySelectorAll(".project-card").forEach(card=>{
+
+    const glow=card.querySelector(".project-glow");
+
+    card.addEventListener("mouseenter",()=>{
+
+        gsap.to(card,{
+            y:-10,
+            duration:.3
+        });
+
+        gsap.to(glow,{
+            opacity:1,
+            scale:1.3,
+            duration:.4
+        });
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        gsap.to(card,{
+            y:0,
+            duration:.3
+        });
+
+        gsap.to(glow,{
+            opacity:0,
+            scale:1,
+            duration:.4
+        });
+
+    });
+
+});
 
   /* ---- PROJECT MODALS ---- */
   const openModalButtons =
