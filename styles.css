@@ -4356,10 +4356,9 @@ html[data-theme="light"] .ai-architecture-note {
 
   /* Make the profile area an intentional mobile element */
   .profile-orbit {
-    width: 96px !important;
-    height: 96px !important;
-
-    margin: 0 auto 1.1rem !important;
+   width: 100px !important;
+  height: 100px !important;
+  margin: 0 auto 1.25rem !important;
 
     position: relative;
 
@@ -4374,8 +4373,8 @@ html[data-theme="light"] .ai-architecture-note {
 
   /* The actual photo */
   .profile-orbit img {
-    width: 96px !important;
-    height: 96px !important;
+    width: 100px !important;
+  height: 100px !important;
 
     display: block;
 
@@ -4438,9 +4437,8 @@ html[data-theme="light"] .ai-architecture-note {
   }
 
   .terminal-title {
-    margin-left: auto;
-    margin-right: auto;
-
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
     font-size: 0.62rem;
   }
 
@@ -4461,5 +4459,68 @@ html[data-theme="light"] .ai-architecture-note {
 
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+}
+
+@media (max-width: 850px) {
+  .arch-arrow {
+    transform: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arch-arrow i {
+    transform: rotate(90deg) !important;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .hero-card {
+    position: relative;
+  }
+
+  .profile-orbit {
+    position: absolute !important;
+
+    width: 90px !important;
+    height: 90px !important;
+
+    top: -28px !important;
+    right: 2px !important;
+
+    margin: 0 !important;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    order: initial;
+  }
+
+  .profile-orbit img {
+    width: 90px !important;
+    height: 90px !important;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 2px solid rgba(74, 240, 196, 0.45);
+
+    box-shadow:
+      0 0 0 5px rgba(74, 240, 196, 0.06),
+      0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .profile-orbit,
+  .profile-orbit img {
+    transform: none !important;
+  }
+
+  .profile-orbit::before,
+  .profile-orbit::after {
+    display: none !important;
   }
 }
