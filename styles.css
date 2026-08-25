@@ -1684,7 +1684,7 @@ body:has(button:hover) .cursor-ring {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 850px) {
   body {
     cursor: auto;
   }
@@ -2084,7 +2084,7 @@ body:has(button:hover) .cursor-ring {
   z-index: 1;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 850px) {
   .experience-top {
     flex-direction: column;
   }
@@ -3124,4 +3124,1342 @@ html[data-theme="light"] .ai-architecture-note {
 
 .hero-headline .line{
     display:block;
+}
+
+/* =========================================================
+   MOBILE UX OVERHAUL
+   Desktop remains unchanged
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  /* ---------- GLOBAL MOBILE ---------- */
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .container {
+    width: min(100% - 28px, 680px);
+  }
+
+  /* Prevent accidental horizontal overflow */
+  section,
+  header,
+  footer,
+  .section,
+  .dark-section {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+
+  /* =======================================================
+     NAVBAR
+     ======================================================= */
+
+  .navbar {
+    height: auto;
+  }
+
+  .nav-container {
+    height: 64px;
+    width: calc(100% - 28px);
+    position: relative;
+  }
+
+  .logo {
+    font-size: 1.28rem;
+    z-index: 210;
+  }
+
+  /* Put both controls inside one visual control area */
+  .theme-toggle {
+    position: static;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    margin: 0;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hamburger span {
+    width: 18px;
+    height: 2px;
+    margin: 2px auto;
+  }
+
+  /*
+     The theme button currently sits outside the nav-container
+     in your HTML. Make room for it visually without changing
+     the desktop structure.
+  */
+  .nav-container {
+    padding-right: 92px;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 12px;
+    right: 64px;
+    z-index: 250;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 12px;
+    right: 14px;
+    z-index: 250;
+  }
+
+
+  /* ---------- MOBILE MENU ---------- */
+
+  .nav-links {
+    position: fixed;
+
+    top: 72px;
+    left: 14px;
+    right: 14px;
+
+    width: auto;
+    max-height: calc(100dvh - 90px);
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0.25rem;
+
+    padding: 0.65rem;
+
+    background: rgba(3, 7, 17, 0.96);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    z-index: 240;
+  }
+
+  [data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: mobileMenuIn 0.2s ease-out;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+
+    min-height: 48px;
+    width: 100%;
+
+    padding: 0.75rem 0.9rem;
+
+    border-radius: 12px;
+
+    font-size: 0.92rem;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(74, 240, 196, 0.07);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  @keyframes mobileMenuIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+
+  /* =======================================================
+     HERO
+     ======================================================= */
+
+  .hero {
+    min-height: auto;
+    padding: 105px 0 58px;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .availability-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .status-pill,
+  .availability-pill {
+    max-width: 100%;
+    font-size: 0.68rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.65rem, 13vw, 4rem);
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+  }
+
+
+  /* ---------- HERO BUTTONS ---------- */
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.75rem 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .hero-socials {
+    gap: 0.8rem;
+    margin-top: 0.25rem;
+  }
+
+  .hero-socials a {
+    min-height: 42px;
+    font-size: 0.82rem;
+  }
+
+
+  /* =======================================================
+     TERMINAL CARD
+     ======================================================= */
+
+  .hero-card {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .terminal-card {
+    width: 100%;
+    transform: none !important;
+    border-radius: 16px;
+  }
+
+  .terminal-header {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .terminal-header span {
+    width: 9px;
+    height: 9px;
+  }
+
+  .terminal-title {
+    font-size: 0.65rem;
+  }
+
+  .terminal-body {
+    padding: 1.1rem;
+    font-size: 0.74rem;
+  }
+
+  .terminal-output {
+    padding-left: 0.9rem;
+    font-size: 0.72rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .stack-pills {
+    padding-left: 0.9rem;
+    gap: 0.35rem;
+  }
+
+  .stack-pills span {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .profile-orbit {
+    width: 100px;
+    height: 100px;
+    margin: 1rem auto 0;
+  }
+
+
+  /* =======================================================
+     IMPACT
+     ======================================================= */
+
+  .impact-strip {
+    padding: 0.9rem 0;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border-radius: 16px;
+  }
+
+  .impact-card {
+    padding: 1rem 0.75rem;
+    min-width: 0;
+  }
+
+  .impact-card h3 {
+    font-size: clamp(1.65rem, 8vw, 2.2rem);
+  }
+
+  .impact-card p {
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+
+
+  /* =======================================================
+     SECTIONS
+     ======================================================= */
+
+  .section {
+    padding: 68px 0;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 0.98;
+    margin-bottom: 2.3rem;
+  }
+
+  .section-title.left {
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+
+
+  /* =======================================================
+     ABOUT
+     ======================================================= */
+
+  .two-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+
+  .about-tags {
+    gap: 0.4rem;
+  }
+
+  .about-tags span {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.6rem;
+  }
+
+
+  /* =======================================================
+     SKILLS
+     ======================================================= */
+
+  .skills-layout-new {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-bars {
+    padding: 1.1rem;
+    border-radius: 16px;
+  }
+
+  .skill-bar-top {
+    gap: 0.5rem;
+  }
+
+  .skill-bar-top span {
+    font-size: 0.78rem;
+  }
+
+  .skill-bar-top small {
+    font-size: 0.65rem;
+  }
+
+  .skills-cards {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .skill-card {
+    padding: 1.15rem;
+    border-radius: 16px;
+  }
+
+  .skill-card p {
+    font-size: 0.8rem;
+  }
+
+
+  /* =======================================================
+     PROJECTS
+     ======================================================= */
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .project-card {
+    min-height: auto;
+    padding: 1.25rem;
+    border-radius: 16px;
+
+    /*
+      Remove desktop 3D behavior on touch.
+      This prevents cards from feeling unstable while scrolling.
+    */
+    transform: none !important;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-top {
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+  }
+
+  .project-label {
+    font-size: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .project-top i {
+    flex-shrink: 0;
+    font-size: 1.15rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.05rem;
+    line-height: 1.25;
+  }
+
+  .project-card p {
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .tech-list {
+    gap: 0.35rem;
+  }
+
+  .tech-list span {
+    font-size: 0.66rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .project-links {
+    margin-top: 1.15rem;
+  }
+
+  .proj-link {
+    min-height: 42px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+  }
+
+  .projects-more .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    text-align: center;
+  }
+
+
+  /* =======================================================
+     GENERAL ARCHITECTURE FLOW
+     ======================================================= */
+
+  .architecture-card {
+    padding: 0.8rem;
+    border-radius: 16px;
+  }
+
+  .architecture-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .arch-node {
+    min-height: auto;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .arch-node i {
+    font-size: 1.35rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .arch-node h3 {
+    font-size: 0.92rem;
+  }
+
+  .arch-node p {
+    font-size: 0.78rem;
+  }
+
+  /*
+     Important:
+     Don't rotate the desktop arrow and let it float between
+     unpredictable card heights.
+
+     Give it a dedicated connector position instead.
+  */
+  .arch-arrow {
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.65;
+  }
+
+  .arch-arrow i {
+    transform: rotate(90deg);
+    font-size: 0.9rem;
+  }
+
+
+  /* =======================================================
+     COURSEWORK
+     ======================================================= */
+
+  .coursework-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .course-card {
+    padding: 1.15rem;
+    border-radius: 16px;
+  }
+
+  .course-card-head {
+    margin-bottom: 1rem;
+    padding-bottom: 0.9rem;
+  }
+
+  .course-card-head h3 {
+    font-size: 0.95rem;
+  }
+
+
+  /* =======================================================
+     LOGO MARQUEE
+     ======================================================= */
+
+  .logo-marquee {
+    margin-top: 2rem;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+
+  .logo-track {
+    gap: 0.65rem;
+    animation-duration: 32s;
+  }
+
+  .logo-item {
+    width: 58px;
+    height: 58px;
+    border-radius: 15px;
+  }
+
+
+  /* =======================================================
+     EXPERIENCE
+     ======================================================= */
+
+  .experience-heading {
+    gap: 0.75rem;
+  }
+
+  .experience-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  /* =======================================================
+     MODALS
+     ======================================================= */
+
+  .modal-content {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .modal-close {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+
+  /* =======================================================
+     CONTACT / FOOTER
+     ======================================================= */
+
+  .footer-content {
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  .footer-content p {
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  .back-top {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* =========================================================
+   MOBILE AI / AWS ARCHITECTURE
+   Replace desktop connector geometry with clean vertical flow
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .ai-system-architecture {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 18px;
+
+    overflow: hidden;
+  }
+
+  .ai-architecture-heading {
+    padding: 0 0.25rem;
+  }
+
+  .ai-architecture-heading h3 {
+    font-size: 1.45rem;
+    line-height: 1.1;
+  }
+
+  .ai-architecture-heading p {
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  .ai-architecture-canvas {
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+  /* ---------- ALL NODES ---------- */
+
+  .ai-node,
+  .ai-node-wide,
+  .ai-user-node,
+  .ai-service-node {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    box-sizing: border-box;
+  }
+
+  .ai-node {
+    padding: 0.85rem;
+    border-radius: 14px;
+  }
+
+  .ai-node-copy {
+    min-width: 0;
+  }
+
+  .ai-node h4 {
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+
+  .ai-node p {
+    font-size: 0.68rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .ai-node-label {
+    font-size: 0.58rem;
+  }
+
+  .ai-node-icon {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+
+  /* ---------- REMOVE PROBLEMATIC DESKTOP CONNECTORS ---------- */
+
+  .ai-branch-connector,
+  .ai-merge-connector {
+    display: none !important;
+  }
+
+  /*
+     Remove the pseudo-element vertical line currently
+     being generated through the service grid.
+  */
+  .ai-service-grid::before,
+  .ai-service-grid::after {
+    display: none !important;
+    content: none !important;
+  }
+
+
+  /* ---------- SERVICE STACK ---------- */
+
+  .ai-service-grid {
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 0.7rem !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    position: relative;
+  }
+
+  .ai-service-node {
+    margin: 0 !important;
+  }
+
+
+  /* ---------- CLEAN CONNECTORS ---------- */
+
+  .ai-vertical-connector {
+    position: relative;
+
+    width: 100%;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+  }
+
+  .ai-vertical-connector::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    width: 1px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+      to bottom,
+      rgba(74, 240, 196, 0.15),
+      rgba(74, 240, 196, 0.65),
+      rgba(74, 240, 196, 0.15)
+    );
+
+    pointer-events: none;
+  }
+
+  .ai-flow-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+  }
+
+  .ai-connector-label {
+    left: auto !important;
+    right: 8px !important;
+
+    font-size: 0.5rem !important;
+
+    padding: 0.18rem 0.4rem;
+
+    white-space: nowrap;
+
+    z-index: 3;
+  }
+
+
+  /* ---------- AWS CLOUD ---------- */
+
+  .ai-cloud-boundary {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0.8rem;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+  }
+
+  .ai-cloud-title {
+    gap: 0.3rem;
+  }
+
+  .ai-cloud-title > div {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .ai-cloud-title span {
+    font-size: 0.78rem;
+  }
+
+  .ai-cloud-title small {
+    font-size: 0.55rem;
+    line-height: 1.4;
+  }
+
+
+  /* ---------- RAG DOCUMENT DECORATION ---------- */
+
+  .ai-mini-documents {
+    display: none !important;
+  }
+
+
+  /* ---------- STATUS BADGES ---------- */
+
+  .ai-status-badge {
+    display: none !important;
+  }
+
+
+  /* ---------- LLM ---------- */
+
+  .ai-llm-node {
+    margin-top: 0 !important;
+  }
+
+  .ai-model-pulse {
+    display: none;
+  }
+
+
+  /* ---------- ARCHITECTURE STACK TAGS ---------- */
+
+  .ai-architecture-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .ai-architecture-stack span {
+    font-size: 0.58rem;
+    padding: 0.4rem 0.55rem;
+  }
+
+
+  /* ---------- FINAL RESPONSE ---------- */
+
+  .ai-response-node {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* =========================================================
+   MOBILE EXPERIENCE CARDS
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .timeline {
+    width: 100%;
+  }
+
+  .timeline-item {
+    padding-left: 0;
+  }
+
+  /*
+     Hide the desktop timeline line/dot on phones.
+     The cards themselves become the visual structure.
+  */
+  .timeline::before,
+  .timeline-dot {
+    display: none;
+  }
+
+  .timeline-content.experience-card {
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+
+  /* ---------- HEADER ---------- */
+
+  .experience-top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .experience-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+
+    width: 100%;
+    text-align: center;
+  }
+
+
+  /* ---------- LOGO ---------- */
+
+  .experience-logo {
+    width: 72px !important;
+    height: 72px !important;
+
+    flex: 0 0 72px;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+    padding: 0.35rem;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+
+    box-sizing: border-box;
+  }
+
+
+  /* ---------- JOB INFO ---------- */
+
+  .experience-heading > div {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .timeline-date {
+    display: block;
+    margin-bottom: 0.45rem;
+
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.08rem;
+    line-height: 1.2;
+
+    max-width: 100%;
+    margin: 0 auto 0.4rem;
+  }
+
+  .timeline-company {
+    font-size: 0.76rem !important;
+    line-height: 1.5;
+  }
+
+
+  /* ---------- BADGE ---------- */
+
+  .experience-badge {
+    align-self: center;
+
+    font-size: 0.62rem;
+    line-height: 1;
+
+    padding: 0.45rem 0.7rem;
+
+    white-space: nowrap;
+  }
+
+
+  /* ---------- DESCRIPTION ---------- */
+
+  .experience-card > p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+
+    margin-top: 1.2rem;
+  }
+
+
+  /* ---------- IMPACT POINTS ---------- */
+
+  .impact-points {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+
+    margin-top: 1rem;
+  }
+
+  .impact-points span {
+    width: 100%;
+    box-sizing: border-box;
+
+    font-size: 0.68rem;
+    line-height: 1.4;
+
+    padding: 0.45rem 0.65rem;
+
+    text-align: center;
+  }
+
+
+  /* ---------- TECHNOLOGIES ---------- */
+
+  .experience-card .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    margin-top: 1rem;
+  }
+
+  .experience-card .tech-list span {
+    font-size: 0.64rem;
+    padding: 0.28rem 0.55rem;
+  }
+}
+
+/* =========================================================
+   MOBILE CONTACT SECTION
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .contact-section .two-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+  }
+
+
+  /* ---------- CONTACT COPY ---------- */
+
+  .contact-section .section-title.left {
+    font-size: clamp(2.25rem, 11vw, 3rem);
+    line-height: 0.98;
+  }
+
+  .contact-section > .container > div:first-child > p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+
+  /* ---------- CONTACT LINKS ---------- */
+
+  .contact-links {
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+  }
+
+  .contact-links a {
+    min-height: 42px;
+
+    padding: 0.55rem 0;
+
+    font-size: 0.82rem;
+
+    display: flex;
+    align-items: center;
+  }
+
+
+  /* ---------- FORM ---------- */
+
+  .contact-form {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 0 !important;
+
+    padding: 1.15rem;
+
+    border-radius: 18px;
+  }
+
+
+  /* ---------- FORM FIELDS ---------- */
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.78rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    min-height: 48px;
+
+    padding: 0.8rem 0.85rem;
+
+    font-size: 16px;
+
+    border-radius: 11px;
+  }
+
+  .form-group textarea {
+    min-height: 145px;
+    resize: vertical;
+    line-height: 1.55;
+  }
+
+
+  /* ---------- SEND BUTTON ---------- */
+
+  #submitBtn {
+    width: 100%;
+
+    min-height: 50px;
+
+    justify-content: center;
+
+    margin-top: 0.25rem;
+
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================================
+   MOBILE PROFILE PHOTO
+   Desktop remains completely unchanged
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  /* Make the profile area an intentional mobile element */
+  .profile-orbit {
+    width: 96px !important;
+    height: 96px !important;
+
+    margin: 0 auto 1.1rem !important;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    order: -1;
+  }
+
+  /* The actual photo */
+  .profile-orbit img {
+    width: 96px !important;
+    height: 96px !important;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(74, 240, 196, 0.35);
+
+    box-shadow:
+      0 0 0 5px rgba(74, 240, 196, 0.05),
+      0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
+
+  /* Keep the photo centered within the hero card */
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-card .profile-orbit {
+    align-self: center;
+  }
+
+
+  /*
+     Don't let the existing desktop orbit/animation
+     make the mobile photo move around.
+  */
+  .profile-orbit,
+  .profile-orbit img {
+    transform: none !important;
+  }
+
+  .profile-orbit::before,
+  .profile-orbit::after {
+    display: none !important;
+  }
+
+
+  /* =======================================================
+     MOBILE TERMINAL
+     ======================================================= */
+
+  .terminal-card {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .terminal-header {
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0.65rem 0.85rem;
+  }
+
+  .terminal-title {
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 0.62rem;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+
+    font-size: 0.72rem;
+
+    line-height: 1.55;
+
+    overflow-x: hidden;
+  }
+
+  .terminal-output {
+    max-width: 100%;
+
+    padding-left: 0.8rem;
+
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 }
